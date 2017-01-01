@@ -36,7 +36,8 @@ namespace PartnersMatcher
                 }
                 else
                 {
-                    User user = databaseUtils.connectUser(tb_email.Text, passwordBox.Password);
+                    User user;
+                    user = databaseUtils.connectUser(tb_email.Text, passwordBox.Password);
                     if (user == null)
                     {
                         MessageBox.Show("Email or password are wrong");
@@ -44,13 +45,14 @@ namespace PartnersMatcher
                     else
                     {
                         MessageBox.Show("Login successfully");
+                        DialogResult = true;
                         Close();
                     }
                 }
             }
             catch (Exception excepction)
             {
-                MessageBox.Show("Could not connect to DB\n" + excepction.ToString());
+                MessageBox.Show("Could not connect to DB\n" + excepction.Message);
             }
         }
     }

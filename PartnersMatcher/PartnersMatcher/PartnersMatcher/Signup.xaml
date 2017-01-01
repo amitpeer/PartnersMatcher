@@ -10,14 +10,14 @@
         <Label x:Name="label" Content="Signup" HorizontalAlignment="Left" Height="31" Margin="112,10,0,0" VerticalAlignment="Top" Width="63" Background="#FFF9D2D2" FontWeight="Bold"/>
         <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="27" Margin="104,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123" RenderTransformOrigin="0.5,0.5"/>
         <TextBox x:Name="tb_firstName" HorizontalAlignment="Left" Height="27" Margin="104,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123"/>
-        <TextBox x:Name="tb_lastName" HorizontalAlignment="Left" Height="27" Margin="104,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123"/>
+        <TextBox x:Name="tb_lastName" HorizontalAlignment="Left" Height="27" Margin="112,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123"/>
         <TextBox x:Name="tb_city" HorizontalAlignment="Left" Height="27" Margin="104,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="123"/>
         <Label x:Name="label1" Content="Password" HorizontalAlignment="Left" Height="27" Margin="10,194,0,0" VerticalAlignment="Top" Width="64"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="27" Margin="104,194,0,0" VerticalAlignment="Top" Width="125"/>
         <Button x:Name="button_signup" Content="Signup" HorizontalAlignment="Left" Height="25" Margin="85,235,0,0" VerticalAlignment="Top" Width="106" Click="button_signup_Click"/>
         <Label x:Name="label1_Copy" Content="Email" HorizontalAlignment="Left" Height="27" Margin="18,44,0,0" VerticalAlignment="Top" Width="64"/>
         <Label x:Name="label1_Copy1" Content="First Name" HorizontalAlignment="Left" Height="27" Margin="18,82,0,0" VerticalAlignment="Top" Width="64"/>
-        <Label x:Name="label1_Copy2" Content="Last Name" HorizontalAlignment="Left" Height="27" Margin="18,114,0,0" VerticalAlignment="Top" Width="64"/>
+        <Label x:Name="label1_Copy2" Content="Last Name" HorizontalAlignment="Left" Height="27" Margin="10,114,0,0" VerticalAlignment="Top" Width="72"/>
         <Label x:Name="label1_Copy3" Content="City" HorizontalAlignment="Left" Height="27" Margin="18,152,0,0" VerticalAlignment="Top" Width="64"/>
 
     </Grid>

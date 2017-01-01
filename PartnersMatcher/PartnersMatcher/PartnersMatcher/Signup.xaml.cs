@@ -43,7 +43,7 @@ namespace PartnersMatcher
                 }
                 catch (Exception expection)
                 {
-                    MessageBox.Show("Signin failed." + "\n" + expection.ToString());
+                    MessageBox.Show("Signin failed." + "\n" + expection.Message);
                 }
             }
         }

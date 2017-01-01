@@ -20,6 +20,8 @@ namespace PartnersMatcher
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static readonly string pathToDb = "";
+        private bool? isLoggedIn;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +36,30 @@ namespace PartnersMatcher
         private void button_login_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            login.ShowDialog();
+            isLoggedIn = login.ShowDialog();
+            MessageBox.Show(isLoggedIn == true? "yes" : "no");
+        }
+
+        private void button_findMatch_Click(object sender, RoutedEventArgs e)
+        {
+            if (tb_category.Text == "" || tb_location.Text == "")
+            {
+                MessageBox.Show("Bad input");
+            }
+            else
+            {
+                DatabaseUtils databaseUtils = new DatabaseUtils(pathToDb);
+                List<Ad> adList = databaseUtils.getAdsByLocationAndCategory(tb_category.Text, tb_location.Text);
+                if (adList != null)
+                    printAdsToList();
+                else
+                    MessageBox.Show("Found nothing, try again with different details");
+            }
+        }
+
+        private void printAdsToList()
+        {
+            throw new NotImplementedException();
         }
     }
 }
