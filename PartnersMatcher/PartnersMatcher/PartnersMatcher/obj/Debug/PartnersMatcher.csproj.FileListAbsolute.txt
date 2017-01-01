@@ -1,1 +1,2 @@
 C:\Users\amitp\Documents\לימודים\סמסטר ה\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe.config
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe.config
