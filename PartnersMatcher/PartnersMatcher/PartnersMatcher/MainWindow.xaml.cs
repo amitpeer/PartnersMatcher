@@ -24,5 +24,17 @@ namespace PartnersMatcher
         {
             InitializeComponent();
         }
+
+        private void button_signup_Click(object sender, RoutedEventArgs e)
+        {
+            Signup signup = new Signup();
+            signup.ShowDialog();
+        }
+
+        private void button_login_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.ShowDialog();
+        }
     }
 }
