@@ -19,7 +19,8 @@ namespace PartnersMatcher
     /// </summary>
     public partial class Signup : Window
     {
-        private static readonly string pathToDb = "";
+        static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+        private static readonly string pathToDb = localPath + @"\PartnerMatcherDB.accdb";
         public Signup()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace PartnersMatcher
             }
             else
             {
-                User user = new User(tb_email.Text, tb_firstName.Text, tb_firstName.Text, passwordBox.Password, tb_lastName.Text);
+                User user = new User(tb_email.Text, tb_firstName.Text, tb_lastName.Text, tb_city.Text, passwordBox.Password);
                 DatabaseUtils databaseUtils = new DatabaseUtils(pathToDb);
                 try
                 {
@@ -43,7 +44,7 @@ namespace PartnersMatcher
                 }
                 catch (Exception expection)
                 {
-                    MessageBox.Show("Signin failed." + "\n" + expection.Message);
+                    MessageBox.Show("Signin failed." + "\n" + expection.ToString());
                 }
             }
         }

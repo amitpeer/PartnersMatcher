@@ -8,10 +8,43 @@ namespace PartnersMatcher
 {
     class Ad
     {
+
         private int _serialNumber;
+
+        public int SerialNumber
+        {
+            get { return _serialNumber; }
+            set { _serialNumber = value; }
+        }
+
+
         private string _category;
+
+        public string Category
+        {
+            get { return _category; }
+            set { _category = value; }
+        }
+
+
         private string _location;
+
+        public string Lcation
+        {
+            get { return _location; }
+            set { _location = value; }
+        }
+
+
         private string _admin;
+
+        public string Admin
+        {
+            get { return _admin; }
+            set { _admin = value; }
+        }
+
+
 
         public Ad(int serialNumber, string category, string location, string admin)
         {

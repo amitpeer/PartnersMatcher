@@ -18,10 +18,16 @@ namespace PartnersMatcher
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
-        private static readonly string pathToDb = "";
+
+        static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+        private static readonly string pathToDb = localPath+@"\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
+
+        DatabaseUtils _dbUtils = new DatabaseUtils(pathToDb);
         public MainWindow()
         {
             InitializeComponent();
@@ -42,18 +48,30 @@ namespace PartnersMatcher
 
         private void button_findMatch_Click(object sender, RoutedEventArgs e)
         {
+
+            List<Ad> adList = null;
             if (tb_category.Text == "" || tb_location.Text == "")
             {
                 MessageBox.Show("Bad input");
             }
             else
             {
-                DatabaseUtils databaseUtils = new DatabaseUtils(pathToDb);
-                List<Ad> adList = databaseUtils.getAdsByLocationAndCategory(tb_category.Text, tb_location.Text);
-                if (adList != null)
-                    printAdsToList();
-                else
-                    MessageBox.Show("Found nothing, try again with different details");
+                try
+                {
+                    adList = _dbUtils.getAdsByLocationAndCategory(tb_location.Text, tb_category.Text);
+                   if (adList != null)
+                       printAdsToList();
+                   else
+                       MessageBox.Show("Found nothing, try again with different details");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                  
+                }
+               
+
+                
             }
         }
 

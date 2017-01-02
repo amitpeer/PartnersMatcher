@@ -19,7 +19,8 @@ namespace PartnersMatcher
     /// </summary>
     public partial class Login : Window
     {
-        private static readonly string pathToDb = "";
+        static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+        private static readonly string pathToDb = localPath + @"\PartnerMatcherDB.accdb";
         public Login()
         {
             InitializeComponent();

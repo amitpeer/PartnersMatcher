@@ -9,12 +9,55 @@ namespace PartnersMatcher
     class User
     {
         private string _email;
+
+
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+
+
         private string _firstName;
+
+        public string FirstName
+        {
+            get { return _firstName; }
+            set { _firstName = value; }
+        }
+
+
         private string _lastName;
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
+        }
+
+
+
         private string _password;
+
+        public string Pssword
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+
+
         private string _city;
 
-        public User(string email, string firstName, string lastName, string password, string city)
+        public string City
+        {
+            get { return _city; }
+            set { _city = value; }
+        }
+
+
+
+        public User(string email, string firstName, string lastName, string city, string password)
         {
             _email = email;
             _firstName = firstName;
