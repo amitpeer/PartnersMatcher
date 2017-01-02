@@ -60,7 +60,7 @@ namespace PartnersMatcher
                 {
                     adList = _dbUtils.getAdsByLocationAndCategory(tb_location.Text, tb_category.Text);
                    if (adList != null)
-                       printAdsToList();
+                       printAdsToList(adList);
                    else
                        MessageBox.Show("Found nothing, try again with different details");
                 }
@@ -75,7 +75,7 @@ namespace PartnersMatcher
             }
         }
 
-        private void printAdsToList()
+        private void printAdsToList(List<Ad> adList)
         {
             throw new NotImplementedException();
         }

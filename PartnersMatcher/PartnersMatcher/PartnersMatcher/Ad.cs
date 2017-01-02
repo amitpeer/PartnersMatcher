@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PartnersMatcher
 {
-    class Ad
+    public class Ad
     {
 
         private int _serialNumber;
@@ -52,6 +52,12 @@ namespace PartnersMatcher
             _category = category;
             _location = location;
             _admin = admin;
+        }
+
+        public override string ToString()
+        {
+            string  tostring=_serialNumber.ToString() +" "+ _category.ToString()+" " + _admin.ToString();
+            return tostring;
         }
 
         public Ad() { }
