@@ -82,3 +82,4 @@ C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml
+D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csprojResolveAssemblyReference.cache
