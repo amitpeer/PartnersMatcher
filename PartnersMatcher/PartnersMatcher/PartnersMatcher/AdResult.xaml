@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="AdResult" Height="300" Width="300">
+        Title="AdResult" Height="521.849" Width="442.017"
+        ResizeMode="NoResize">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="229" VerticalAlignment="Bottom" Width="292" Margin="0,0,0,40" SelectionChanged="listView_SelectionChanged">
-            <Grid Height="219" Width="282" x:Name="myGrid">
+        <ListView x:Name ="listview" Width="350" Margin="44,20,42,63"/>
 
 
-    </Grid>
-    </ListView>
-        <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Height="19" Margin="100,240,0,0" VerticalAlignment="Top" Width="81" Click="button_Click"/>
+
+        <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Height="19" Margin="175,446,0,0" VerticalAlignment="Top" Width="81" Click="button_Click"/>
 
     </Grid>
 </Window>

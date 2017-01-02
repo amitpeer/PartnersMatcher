@@ -19,13 +19,21 @@ namespace PartnersMatcher
     /// </summary>
     public partial class AdResult : Window
     {
+        private List<Ad> adList;
+
+        public List<Ad> AdList
+        {
+            get { return adList; }
+            set { adList = value; }
+        }
+
         public AdResult(List<Ad> adList)
         {
             InitializeComponent();
+            AdList = adList;
             foreach (Ad ad in adList)
             {
-                
-                this.myGrid.Children.Add(new AdSummary(ad));
+                listview.Items.Add(new AdSummary(ad));
             }
         }
 

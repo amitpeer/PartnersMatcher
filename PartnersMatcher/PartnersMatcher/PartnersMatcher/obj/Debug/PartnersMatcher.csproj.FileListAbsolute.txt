@@ -56,3 +56,25 @@ D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe.config
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.pdb
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csprojResolveAssemblyReference.cache
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.g.cs
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.g.cs
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\MainWindow.g.cs
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Signup.g.cs
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\App.g.cs
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher_MarkupCompile.cache
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher_MarkupCompile.lref
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.baml
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\MainWindow.baml
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Signup.baml
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.g.resources
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.Properties.Resources.resources
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csproj.GenerateResource.Cache
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.exe
+F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.pdb
