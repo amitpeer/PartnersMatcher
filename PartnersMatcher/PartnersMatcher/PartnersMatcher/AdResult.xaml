@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="AdResult" Height="300" Width="300">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="229" VerticalAlignment="Bottom" Width="292" Margin="0,0,0,40">
-            <ItemsPanelTemplate>
-                <UserControl:AdSummary>
-            </ItemsPanelTemplate>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="229" VerticalAlignment="Bottom" Width="292" Margin="0,0,0,40" SelectionChanged="listView_SelectionChanged">
+            <Grid Height="219" Width="282" x:Name="myGrid">
 
-        </ListView>
+
+    </Grid>
+    </ListView>
         <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Height="19" Margin="100,240,0,0" VerticalAlignment="Top" Width="81" Click="button_Click"/>
 
     </Grid>

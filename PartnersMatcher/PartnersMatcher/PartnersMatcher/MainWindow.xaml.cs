@@ -77,7 +77,10 @@ namespace PartnersMatcher
 
         private void printAdsToList(List<Ad> adList)
         {
-            throw new NotImplementedException();
+            AdResult adResult= new AdResult(adList);
+            adResult.ShowDialog();
+            
+           
         }
     }
 }

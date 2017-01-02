@@ -19,7 +19,7 @@
             <Label x:Name="label1" HorizontalAlignment="Left" Height="28" Margin="144.545,17,0,0" VerticalAlignment="Top" Width="105" Grid.Column="1">
                 <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="TextBlock"/>
             </Label>
-            <TextBox x:Name="tb_location" HorizontalAlignment="Left" Height="30" Margin="50.545,71,0,0" TextWrapping="Wrap" Text="Location" VerticalAlignment="Top" Width="114" Grid.Column="1" TextChanged="tb_location_TextChanged"/>
+            <TextBox x:Name="tb_location" HorizontalAlignment="Left" Height="30" Margin="50.545,71,0,0" TextWrapping="Wrap" Text="Location" VerticalAlignment="Top" Width="114" Grid.Column="1" />
             <TextBox x:Name="tb_category" HorizontalAlignment="Left" Height="30" Margin="219.545,71,0,0" TextWrapping="Wrap" Text="Category" VerticalAlignment="Top" Width="114" Grid.Column="1"/>
             <Button x:Name="button_findMatch" Content="Find me a match" HorizontalAlignment="Left" Height="26" Margin="133.545,121,0,0" VerticalAlignment="Top" Width="107" Click="button_findMatch_Click" Grid.Column="1"/>
         </Grid>

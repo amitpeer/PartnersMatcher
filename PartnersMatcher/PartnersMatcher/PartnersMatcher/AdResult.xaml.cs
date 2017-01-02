@@ -19,13 +19,25 @@ namespace PartnersMatcher
     /// </summary>
     public partial class AdResult : Window
     {
-        public AdResult()
+        public AdResult(List<Ad> adList)
         {
             InitializeComponent();
+            foreach (Ad ad in adList)
+            {
+                
+                this.myGrid.Children.Add(new AdSummary(ad));
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+ 
 
         }
     }

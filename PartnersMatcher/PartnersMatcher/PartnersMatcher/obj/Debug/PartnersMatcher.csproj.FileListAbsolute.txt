@@ -38,7 +38,6 @@ C:\Users\win7\Desktop\MM\PartnerMacherGit\PartnersMatcher\PartnersMatcher\Partne
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe.config
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.pdb
-D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csprojResolveAssemblyReference.cache
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.g.cs
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\MainWindow.g.cs
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Signup.g.cs
@@ -53,3 +52,7 @@ D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csproj.GenerateResource.Cache
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.exe
 D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.pdb
+D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.g.cs
+D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
+D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
+D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml
