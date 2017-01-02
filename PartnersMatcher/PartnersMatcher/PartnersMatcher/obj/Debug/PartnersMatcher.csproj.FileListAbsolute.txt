@@ -17,3 +17,6 @@ C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Signup.baml
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.g.cs
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.baml
+C:\Users\win7\Desktop\MM\PartnerMacherGit\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe.config
+C:\Users\win7\Desktop\MM\PartnerMacherGit\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.exe
+C:\Users\win7\Desktop\MM\PartnerMacherGit\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.pdb

@@ -18,14 +18,11 @@ namespace PartnersMatcher
                                         Persist Security Info=False");  // defining the source of the data base, meaning connection
 
         }
-
+         //hello
 
         public void addUser(User user)
         {
             _dbConn.Open();
-
-
-
         }
 
         public void addAd(Ad ad)
