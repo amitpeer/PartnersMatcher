@@ -23,7 +23,8 @@ namespace PartnersMatcher
 
     public partial class MainWindow : Window
     {
-
+        List<string> location;
+        List<string> category;
         private static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private static readonly string pathToDb = localPath+@"\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
@@ -45,6 +46,9 @@ namespace PartnersMatcher
         DatabaseUtils _dbUtils = new DatabaseUtils(pathToDb);
         public MainWindow()
         {
+            location = new List<string>();
+            category= new List<string>();
+            location.Add("ירושליים");
             InitializeComponent();
         }
 
@@ -130,6 +134,52 @@ namespace PartnersMatcher
             TextBox tb = (TextBox)sender;
             tb.Text = string.Empty;
             tb.GotFocus -= TextBox_GotFocus;
+        }
+
+        private void location_loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("");
+            data.Add("אילת");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
+
+        private void tb_location_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            comboBox.Text = comboBox.SelectedItem as string;
+        }
+
+        private void catagory_loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> data = new List<string>();
+            data.Add("");
+            data.Add("ספורט");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+
+            var comboBox = sender as ComboBox;
+            comboBox.ItemsSource = data;
+            comboBox.SelectedIndex = 0;
+        }
+
+        private void tb_catagory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            comboBox.Text = comboBox.SelectedItem as string;
         }
     }
 }

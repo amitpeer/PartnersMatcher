@@ -10,11 +10,11 @@
     <Canvas HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="300" Background="CadetBlue">
         <Grid Height="100" Width="300">
             <Label x:Name="label" Content="תוצאות החיפוש" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,0,0,0" FontWeight="Bold" />
-            <Button x:Name="button" Content="פתח מודעה בחלון חדש" HorizontalAlignment="Left" Height="27" Margin="165,63,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="-0.034,4.273" Click="button_Click"/>
-            <TextBlock x:Name="adid" Text=":מזהה מודעה" HorizontalAlignment="Left" Height="17" Margin="85,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"><Span Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" FontWeight="Bold"><Run Text="adid"/></Span></TextBlock>
-            <TextBlock x:Name="adid1" HorizontalAlignment="Left" Height="17" Margin="30,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"><Span Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" FontWeight="Bold"><Run Text="adid"/></Span></TextBlock>
+            <Button x:Name="button" Content="פתח מודעה בחלון חדש" HorizontalAlignment="Right" Height="27" Margin="0,67,175,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="-0.034,4.273" Click="button_Click"/>
+            <TextBlock x:Name="adid" Text=":מזהה מודעה" HorizontalAlignment="Right" Height="17" Margin="215,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75"><Span Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" FontWeight="Bold"><Run Text="adid"/></Span></TextBlock>
+            <TextBlock x:Name="adid1" HorizontalAlignment="Right" Height="17" Margin="0,34,75,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"><Span Foreground="Blue" FontSize="12.6666666666667" FontFamily="Consolas" FontWeight="Bold"><Run Text="adid"/></Span></TextBlock>
 
-            <TextBlock x:Name="category" Text=":קטגוריה" HorizontalAlignment="Left" Height="17" Margin="87,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5">
+            <TextBlock x:Name="category" Text=":קטגוריה" HorizontalAlignment="Right" Height="17" Margin="223,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.5,0.5">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -23,10 +23,10 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </TextBlock.RenderTransform><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="category"/></Span></TextBlock>
-            <TextBlock x:Name="category1" HorizontalAlignment="Left" Height="17" Margin="17,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63"><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="category"/></Span></TextBlock>
+            <TextBlock x:Name="category1" HorizontalAlignment="Right" Height="17" Margin="0,56,67,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63"><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="category"/></Span></TextBlock>
 
-            <TextBlock x:Name="Location" Text=":מיקום" HorizontalAlignment="Left" Height="17" Margin="85,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63"><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="Location"/></Span></TextBlock>
-            <TextBlock x:Name="Location1" HorizontalAlignment="Left" Height="17" Margin="17,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63"><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="Location"/></Span></TextBlock>
+            <TextBlock x:Name="Location" Text=":מיקום" HorizontalAlignment="Right" Height="17" Margin="0,73,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44"><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="Location"/></Span></TextBlock>
+            <TextBlock x:Name="Location1" HorizontalAlignment="Right" Height="17" Margin="0,77,67,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="63"><Span Foreground="Blue" FontSize="12.6666666666667" FontWeight="Bold" FontFamily="Consolas"><Run Text="Location"/></Span></TextBlock>
 
 
         </Grid>
