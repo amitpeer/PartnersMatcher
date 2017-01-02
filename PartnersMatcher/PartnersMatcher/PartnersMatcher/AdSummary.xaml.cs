@@ -33,7 +33,7 @@ namespace PartnersMatcher
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Currently inactive");
+            MessageBox.Show("שירות זה אינו זמין כרגע");
         }
     }
 }

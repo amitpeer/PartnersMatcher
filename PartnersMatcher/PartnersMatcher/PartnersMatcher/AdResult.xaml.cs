@@ -39,14 +39,14 @@ namespace PartnersMatcher
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
  
-
+            
         }
     }
 }

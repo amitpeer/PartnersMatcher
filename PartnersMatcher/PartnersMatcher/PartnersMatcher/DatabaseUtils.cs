@@ -24,7 +24,6 @@ namespace PartnersMatcher
 
         public void addUser(User user)
         {
-
             string email = user.Email;
             string firstName = user.FirstName;
             string lastName = user.LastName;

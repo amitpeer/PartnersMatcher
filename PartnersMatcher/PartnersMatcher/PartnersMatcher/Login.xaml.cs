@@ -33,7 +33,7 @@ namespace PartnersMatcher
                 DatabaseUtils databaseUtils = new DatabaseUtils(pathToDb);
                 if (tb_email.Text == "" || passwordBox.Password == "")
                 {
-                    MessageBox.Show("Bad input");
+                    MessageBox.Show("קלט לא תקין");
                 }
                 else
                 {
@@ -41,11 +41,11 @@ namespace PartnersMatcher
                     user = databaseUtils.connectUser(tb_email.Text, passwordBox.Password);
                     if (user == null)
                     {
-                        MessageBox.Show("Email or password are wrong");
+                        MessageBox.Show("אימייל או סיסמא שגויים");
                     }
                     else
                     {
-                        MessageBox.Show("Login successfully");
+                        MessageBox.Show("התחבר בהצלחה!");
                         DialogResult = true;
                         Close();
                     }
@@ -53,7 +53,7 @@ namespace PartnersMatcher
             }
             catch (Exception excepction)
             {
-                MessageBox.Show("Could not connect to DB\n" + excepction.Message);
+                MessageBox.Show("לא הצלחנו להתחבר למסד הנתונים.\n" + excepction.Message);
             }
         }
     }

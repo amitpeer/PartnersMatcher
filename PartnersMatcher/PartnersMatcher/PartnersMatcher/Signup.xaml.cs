@@ -30,7 +30,7 @@ namespace PartnersMatcher
         {
             if (tb_firstName.Text == "" || tb_lastName.Text == "" || tb_email.Text == "" || tb_city.Text == "" || passwordBox.Password == "")
             {
-                MessageBox.Show("Bad input");
+                MessageBox.Show("קלט לא תקין");
             }
             else
             {
@@ -39,14 +39,21 @@ namespace PartnersMatcher
                 try
                 {
                     databaseUtils.addUser(user);
-                    MessageBox.Show("Success. Please expect confirimation email");
+                    MessageBox.Show("ההרשמה עברה בהצלחה והודעה לאימייל נשלחה.");
                     Close();
                 }
                 catch (Exception expection)
                 {
-                    MessageBox.Show("Signin failed." + "\n" + expection.ToString());
+                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + expection.ToString());
                 }
             }
+        }
+
+        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= TextBox_GotFocus;
         }
     }
 }

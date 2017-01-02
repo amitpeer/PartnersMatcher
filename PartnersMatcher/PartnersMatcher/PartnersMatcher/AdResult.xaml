@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
         Title="AdResult" Height="521.849" Width="442.017"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Background="CadetBlue">
     <Grid>
-        <ListView x:Name ="listview" Width="350" Margin="44,20,42,63"/>
+        <ListView x:Name ="listview" Width="350" Margin="44,20,42,63" Background="CadetBlue"/>
 
 
 
-        <Button x:Name="button" Content="Ok" HorizontalAlignment="Left" Height="19" Margin="175,446,0,0" VerticalAlignment="Top" Width="81" Click="button_Click"/>
+        <Button x:Name="button" Content="אישור" HorizontalAlignment="Left" Height="19" Margin="175,446,0,0" VerticalAlignment="Top" Width="81" Click="button_Click"/>
 
     </Grid>
 </Window>

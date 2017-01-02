@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="Login" Height="300" Width="300">
+        Title="Login" Height="300" Width="300"
+        Background="CadetBlue">
     <Grid>
-        <Label x:Name="label" Content="Login" HorizontalAlignment="Left" Height="31" Margin="112,10,0,0" VerticalAlignment="Top" Width="63" Background="#FFF9D2D2" FontWeight="Bold"/>
-        <Label x:Name="label1" Content="Email" HorizontalAlignment="Left" Height="28" Margin="27,63,0,0" VerticalAlignment="Top" Width="106"/>
-        <Label x:Name="label1_Copy" Content="Password" HorizontalAlignment="Left" Height="28" Margin="27,92,0,0" VerticalAlignment="Top" Width="106"/>
-        <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="22" Margin="120,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="121"/>
-        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="20" Margin="120,96,0,0" VerticalAlignment="Top" Width="119"/>
-        <Button x:Name="button_login" Content="Login" HorizontalAlignment="Left" Height="24" Margin="104,140,0,0" VerticalAlignment="Top" Width="87" Click="button_login_Click"/>
+        <Label x:Name="label" Content="התחברות"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="31" Margin="108,17,0,0" VerticalAlignment="Top" Width="63" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="כתובת אימייל"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="28" Margin="176,61,0,0" VerticalAlignment="Top" Width="83"/>
+        <Label x:Name="label1_Copy" Content="סיסמא"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="28" Margin="207,97,0,0" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="22" Margin="22,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="20" Margin="22,97,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="button_login" Content="התחבר" HorizontalAlignment="Left" Height="24" Margin="99,138,0,0" VerticalAlignment="Top" Width="87" Click="button_login_Click"/>
 
     </Grid>
 </Window>

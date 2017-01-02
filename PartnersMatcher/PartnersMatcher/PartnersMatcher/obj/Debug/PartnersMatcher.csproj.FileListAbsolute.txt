@@ -78,3 +78,7 @@ F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\Partners
 F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csproj.GenerateResource.Cache
 F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.exe
 F:\Apps\Git Respository\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.pdb
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml

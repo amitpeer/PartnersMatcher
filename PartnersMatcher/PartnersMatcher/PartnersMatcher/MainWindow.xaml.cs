@@ -23,9 +23,22 @@ namespace PartnersMatcher
     public partial class MainWindow : Window
     {
 
-        static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+        private static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private static readonly string pathToDb = localPath+@"\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
+        public bool? IsLoggedIn
+        {
+            get
+            {
+                return isLoggedIn;
+            }
+
+            set
+            {
+                isLoggedIn = value;
+                loginChanged();
+            }
+        }
 
         DatabaseUtils _dbUtils = new DatabaseUtils(pathToDb);
         public MainWindow()
@@ -42,8 +55,25 @@ namespace PartnersMatcher
         private void button_login_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            isLoggedIn = login.ShowDialog();
-            MessageBox.Show(isLoggedIn == true? "yes" : "no");
+            IsLoggedIn = login.ShowDialog();
+        }
+
+        private void loginChanged()
+        {
+            if (IsLoggedIn == true)
+            {
+                button_login.Visibility = Visibility.Hidden;
+                button_signup.Visibility = Visibility.Hidden;
+                button_logout.Visibility = Visibility.Visible;
+                gird_search.Visibility = Visibility.Visible;
+            }
+            else if(isLoggedIn == false)
+            {
+                button_logout.Visibility = Visibility.Hidden;
+                button_login.Visibility = Visibility.Visible;
+                button_signup.Visibility = Visibility.Visible;
+                gird_search.Visibility = Visibility.Hidden;
+            }
         }
 
         private void button_findMatch_Click(object sender, RoutedEventArgs e)
@@ -52,7 +82,7 @@ namespace PartnersMatcher
             List<Ad> adList = null;
             if (tb_category.Text == "" || tb_location.Text == "")
             {
-                MessageBox.Show("Bad input");
+                MessageBox.Show("קלט לא חוקי");
             }
             else
             {
@@ -62,25 +92,34 @@ namespace PartnersMatcher
                    if (adList != null)
                        printAdsToList(adList);
                    else
-                       MessageBox.Show("Found nothing, try again with different details");
+                       MessageBox.Show("מצטערים, לא מצאנו.אנא נסה שוב עם קטגוריה או מיקום שונים.");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                   
-                }
-               
-
-                
+                }                           
             }
         }
 
         private void printAdsToList(List<Ad> adList)
         {
             AdResult adResult= new AdResult(adList);
-            adResult.ShowDialog();
-            
-           
+            adResult.ShowDialog();                     
+        }
+
+        private void button_logout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("בטוח שברצונך להתנתק?", "אישור", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+                IsLoggedIn = false;
+        }
+
+        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= TextBox_GotFocus;
         }
     }
 }
