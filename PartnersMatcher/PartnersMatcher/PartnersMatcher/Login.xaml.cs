@@ -24,6 +24,7 @@ namespace PartnersMatcher
         public Login()
         {
             InitializeComponent();
+            tb_email.Focus();
         }
 
         private void button_login_Click(object sender, RoutedEventArgs e)
@@ -47,6 +48,7 @@ namespace PartnersMatcher
                     {
                         MessageBox.Show("התחבר בהצלחה!");
                         DialogResult = true;
+                        ((MainWindow)Application.Current.MainWindow).notifyMe(user);
                         Close();
                     }
                 }

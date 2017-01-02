@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace PartnersMatcher
 {
-    class User
+    public class User
     {
         private string _email;
-
-
-
         public string Email
         {
             get { return _email; }

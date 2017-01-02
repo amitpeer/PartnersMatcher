@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,7 @@ namespace PartnersMatcher
         private static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private static readonly string pathToDb = localPath+@"\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
+        private User user;
         public bool? IsLoggedIn
         {
             get
@@ -66,6 +68,8 @@ namespace PartnersMatcher
                 button_signup.Visibility = Visibility.Hidden;
                 button_logout.Visibility = Visibility.Visible;
                 gird_search.Visibility = Visibility.Visible;
+                label_welcome.Content = Regex.IsMatch(user.FirstName, "^[a-zA-Z0-9]*$") ? user.FirstName + " שלום" : "שלום " + user.FirstName;
+                label_welcome.Visibility = Visibility.Visible;
             }
             else if(isLoggedIn == false)
             {
@@ -73,7 +77,13 @@ namespace PartnersMatcher
                 button_login.Visibility = Visibility.Visible;
                 button_signup.Visibility = Visibility.Visible;
                 gird_search.Visibility = Visibility.Hidden;
+                label_welcome.Visibility = Visibility.Hidden;
             }
+        }
+
+        public void notifyMe(User user)
+        {
+            this.user = user;
         }
 
         private void button_findMatch_Click(object sender, RoutedEventArgs e)
@@ -115,7 +125,7 @@ namespace PartnersMatcher
                 IsLoggedIn = false;
         }
 
-        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
             tb.Text = string.Empty;

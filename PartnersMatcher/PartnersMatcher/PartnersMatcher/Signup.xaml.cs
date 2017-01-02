@@ -24,6 +24,7 @@ namespace PartnersMatcher
         public Signup()
         {
             InitializeComponent();
+            tb_email.Focus();
         }
 
         private void button_signup_Click(object sender, RoutedEventArgs e)
