@@ -12,7 +12,7 @@
         <Label x:Name="label" Content="PartersMatcher" HorizontalAlignment="Left" Height="48" Margin="202,29,0,0" VerticalAlignment="Top" Width="123" FontWeight="Bold"/>
         <Button x:Name="button_login" Content="משתמש קיים? התחבר" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Click="button_login_Click"/>
         <Button x:Name="button_signup" Content="חדש כאן? הירשם" HorizontalAlignment="Left" Height="32" Margin="10,47,0,0" VerticalAlignment="Top" Width="137" Click="button_signup_Click"/>
-        <Button x:Name="button_logout" Content="התנתק" Visibility ="Hidden" HorizontalAlignment="Left" Height="33" Margin="394,21,0,0" VerticalAlignment="Top" Width="103" Click="button_logout_Click"/>
+        <Button x:Name="button_logout" Content="התנתק" Visibility ="Visible" HorizontalAlignment="Left" Height="33" Margin="396,56,0,0" VerticalAlignment="Top" Width="103" Click="button_logout_Click"/>
         <Grid Name="gird_search" Visibility="Hidden" HorizontalAlignment="Left" Height="156" Margin="69,205,0,-41" VerticalAlignment="Top" Width="373" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -26,6 +26,7 @@
         </Grid>
         <Label x:Name="label_mainContent" HorizontalContentAlignment="Right" Content="?ברוכים הבאים לפארטנר מאטצ'ר. מרגישים שאף אחד לא זורם על השטויות שלכם&#xA;&#xA;&#xA;&#xA;" HorizontalAlignment="Left" Height="29" Margin="20,96,0,0" VerticalAlignment="Top" Width="487"/>
         <Label x:Name="label_mainContent_Copy" HorizontalContentAlignment="Right" Content=".זה המקום למצוא את האנשים  שהחברים שלכם לא מוכנים להיות" HorizontalAlignment="Left" Height="29" Margin="20,125,0,0" VerticalAlignment="Top" Width="487"/>
+        <Label x:Name="label_welcome" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="41" Margin="330,21,0,0" VerticalAlignment="Top" Width="169"/>
 
 
     </Grid>

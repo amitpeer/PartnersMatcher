@@ -82,4 +82,25 @@ C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
 C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml
-D:\Git\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csprojResolveAssemblyReference.cache
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe.config
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.exe
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\bin\Debug\PartnersMatcher.pdb
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csprojResolveAssemblyReference.cache
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\MainWindow.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Signup.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\App.g.cs
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher_MarkupCompile.cache
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher_MarkupCompile.lref
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdResult.baml
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\AdSummary.baml
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Login.baml
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\MainWindow.baml
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\Signup.baml
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.g.resources
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.Properties.Resources.resources
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.csproj.GenerateResource.Cache
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.exe
+C:\Users\amitp\Documents\לימודים\סמסטר ה\ניתוצ\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\PartnersMatcher\obj\Debug\PartnersMatcher.pdb
