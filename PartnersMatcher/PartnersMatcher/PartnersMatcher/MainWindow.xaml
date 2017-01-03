@@ -13,7 +13,7 @@
         <Button x:Name="button_login" Content="משתמש קיים? התחבר" HorizontalAlignment="Left" Height="32" Margin="10,10,0,0" VerticalAlignment="Top" Width="137" Click="button_login_Click"/>
         <Button x:Name="button_signup" Content="חדש כאן? הירשם" HorizontalAlignment="Left" Height="32" Margin="10,47,0,0" VerticalAlignment="Top" Width="137" Click="button_signup_Click"/>
         <Button x:Name="button_logout" Content="התנתק" Visibility ="Hidden" HorizontalAlignment="Left" Height="33" Margin="396,56,0,0" VerticalAlignment="Top" Width="103" Click="button_logout_Click"/>
-        <Grid Name="gird_search" Visibility="Hidden" HorizontalAlignment="Left" Height="156" Margin="71,164,0,0" VerticalAlignment="Top" Width="373" >
+        <Grid Name="gird_search" Visibility="Hidden" HorizontalAlignment="Left" Height="156" Margin="60,208,0,-45" VerticalAlignment="Top" Width="373" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="191*"/>

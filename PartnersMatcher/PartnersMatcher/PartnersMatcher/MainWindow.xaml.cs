@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -24,10 +23,10 @@ namespace PartnersMatcher
 
     public partial class MainWindow : Window
     {
-        List<string> _location;
-        List<string> _category;
+        List<string> location;
+        List<string> category;
         private static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-        private static readonly string pathToDb = localPath+@"\Data\PartnerMatcherDB.accdb";
+        private static readonly string pathToDb = localPath+@"\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
         private User user;
         public bool? IsLoggedIn
@@ -47,29 +46,10 @@ namespace PartnersMatcher
         DatabaseUtils _dbUtils = new DatabaseUtils(pathToDb);
         public MainWindow()
         {
-           
-            loadLocationsAndCategorys();
+            location = new List<string>();
+            category= new List<string>();
+            location.Add("ירושליים");
             InitializeComponent();
-
-
-        }
-
-        private void loadLocationsAndCategorys()
-        {
-            StreamReader srLocations = new StreamReader(localPath+@"\Data\location.txt",System.Text.ASCIIEncoding.Default);                                  //the constructor 
-            StreamReader srCategorys = new StreamReader(localPath + @"\Data\category.txt",System.Text.ASCIIEncoding.Default);                             //reach both from file
-            string locations = srLocations.ReadToEnd();
-            string categorys = srCategorys.ReadToEnd();
-            srLocations.Close();
-            srCategorys.Close();
-
-
-            string[] splitLocations = locations.Split(new string [] {"\r\n"} , StringSplitOptions.RemoveEmptyEntries);                                                            //look at the file format
-            string[] splitCategorys = categorys.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-                                                                                                                        
-            _location = splitLocations.ToList();
-            _category = splitCategorys.ToList();
-            
         }
 
         private void button_signup_Click(object sender, RoutedEventArgs e)
@@ -112,11 +92,7 @@ namespace PartnersMatcher
 
         private void button_findMatch_Click(object sender, RoutedEventArgs e)
         {
-            if (tb_category.SelectedIndex == 0 || tb_location.SelectedIndex == 0)
-            {
-                MessageBox.Show("אנא מלא את כל הפרטים");
-                return; 
-            }
+
             List<Ad> adList = null;
             if (tb_category.Text == "" || tb_location.Text == "")
             {
@@ -127,14 +103,15 @@ namespace PartnersMatcher
                 try
                 {
                     adList = _dbUtils.getAdsByLocationAndCategory(tb_location.Text, tb_category.Text);
-                   if (adList != null && adList.Count>0)
+                   if (adList != null)
                        printAdsToList(adList);
                    else
-                       MessageBox.Show(".מצטערים, לא מצאנו.אנא נסה שוב עם קטגוריה או מיקום שונים");
+                       MessageBox.Show("מצטערים, לא מצאנו.אנא נסה שוב עם קטגוריה או מיקום שונים.");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);                  
+                    MessageBox.Show(ex.Message);
+                  
                 }                           
             }
         }
@@ -161,18 +138,18 @@ namespace PartnersMatcher
 
         private void location_loaded(object sender, RoutedEventArgs e)
         {
-            //List<string> data = new List<string>();
-            //data.Add("");
-            //data.Add("אילת");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
+            List<string> data = new List<string>();
+            data.Add("");
+            data.Add("אילת");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
 
             var comboBox = sender as ComboBox;
-            comboBox.ItemsSource = _location;
+            comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
 
@@ -184,18 +161,18 @@ namespace PartnersMatcher
 
         private void catagory_loaded(object sender, RoutedEventArgs e)
         {
-            //List<string> data = new List<string>();
-            //data.Add("");
-            //data.Add("ספורט");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
-            //data.Add("");
+            List<string> data = new List<string>();
+            data.Add("");
+            data.Add("ספורט");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
+            data.Add("");
 
             var comboBox = sender as ComboBox;
-            comboBox.ItemsSource = _category;
+            comboBox.ItemsSource = data;
             comboBox.SelectedIndex = 0;
         }
 
@@ -204,8 +181,5 @@ namespace PartnersMatcher
             var comboBox = sender as ComboBox;
             comboBox.Text = comboBox.SelectedItem as string;
         }
-
-         
-
     }
 }
