@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -23,10 +24,10 @@ namespace PartnersMatcher
 
     public partial class MainWindow : Window
     {
-        List<string> location;
-        List<string> category;
+        List<string> _location;
+        List<string> _category;
         private static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-        private static readonly string pathToDb = localPath+@"\PartnerMatcherDB.accdb";
+        private static readonly string pathToDb = localPath + @"\Data\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
         private User user;
         public bool? IsLoggedIn
@@ -46,10 +47,29 @@ namespace PartnersMatcher
         DatabaseUtils _dbUtils = new DatabaseUtils(pathToDb);
         public MainWindow()
         {
-            location = new List<string>();
-            category= new List<string>();
-            location.Add("ירושליים");
+
+            loadLocationsAndCategorys();
             InitializeComponent();
+
+
+        }
+
+        private void loadLocationsAndCategorys()
+        {
+            StreamReader srLocations = new StreamReader(localPath + @"\Data\location.txt", System.Text.ASCIIEncoding.Default);                                  //the constructor 
+            StreamReader srCategorys = new StreamReader(localPath + @"\Data\category.txt", System.Text.ASCIIEncoding.Default);                             //reach both from file
+            string locations = srLocations.ReadToEnd();
+            string categorys = srCategorys.ReadToEnd();
+            srLocations.Close();
+            srCategorys.Close();
+
+
+            string[] splitLocations = locations.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);                                                            //look at the file format
+            string[] splitCategorys = categorys.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            _location = splitLocations.ToList();
+            _category = splitCategorys.ToList();
+
         }
 
         private void button_signup_Click(object sender, RoutedEventArgs e)
@@ -66,6 +86,8 @@ namespace PartnersMatcher
 
         private void loginChanged()
         {
+            tb_location.SelectedIndex = 0;
+            tb_location.SelectedIndex = 0;
             if (IsLoggedIn == true)
             {
                 button_login.Visibility = Visibility.Hidden;
@@ -75,7 +97,7 @@ namespace PartnersMatcher
                 label_welcome.Content = Regex.IsMatch(user.FirstName, "^[a-zA-Z0-9]*$") ? user.FirstName + " שלום" : "שלום " + user.FirstName;
                 label_welcome.Visibility = Visibility.Visible;
             }
-            else if(isLoggedIn == false)
+            else if (isLoggedIn == false)
             {
                 button_logout.Visibility = Visibility.Hidden;
                 button_login.Visibility = Visibility.Visible;
@@ -91,10 +113,9 @@ namespace PartnersMatcher
         }
 
         private void button_findMatch_Click(object sender, RoutedEventArgs e)
-        {
-
+        {      
             List<Ad> adList = null;
-            if (tb_category.Text == "" || tb_location.Text == "")
+            if (tb_category.SelectedIndex==0 || tb_location.SelectedIndex == 0)
             {
                 MessageBox.Show("קלט לא חוקי");
             }
@@ -103,23 +124,23 @@ namespace PartnersMatcher
                 try
                 {
                     adList = _dbUtils.getAdsByLocationAndCategory(tb_location.Text, tb_category.Text);
-                   if (adList != null)
-                       printAdsToList(adList);
-                   else
-                       MessageBox.Show("מצטערים, לא מצאנו.אנא נסה שוב עם קטגוריה או מיקום שונים.");
+                    if (adList != null && adList.Count>0)
+                        printAdsToList(adList);
+                    else
+                        MessageBox.Show(".מצטערים, לא מצאנו.אנא נסה שוב עם קטגוריה או מיקום שונים");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                  
-                }                           
+
+                }
             }
         }
 
         private void printAdsToList(List<Ad> adList)
         {
-            AdResult adResult= new AdResult(adList);
-            adResult.ShowDialog();                     
+            AdResult adResult = new AdResult(adList);
+            adResult.ShowDialog();
         }
 
         private void button_logout_Click(object sender, RoutedEventArgs e)
@@ -138,18 +159,8 @@ namespace PartnersMatcher
 
         private void location_loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>();
-            data.Add("");
-            data.Add("אילת");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-
             var comboBox = sender as ComboBox;
-            comboBox.ItemsSource = data;
+            comboBox.ItemsSource = _location;
             comboBox.SelectedIndex = 0;
         }
 
@@ -161,18 +172,8 @@ namespace PartnersMatcher
 
         private void catagory_loaded(object sender, RoutedEventArgs e)
         {
-            List<string> data = new List<string>();
-            data.Add("");
-            data.Add("ספורט");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-            data.Add("");
-
             var comboBox = sender as ComboBox;
-            comboBox.ItemsSource = data;
+            comboBox.ItemsSource = _category;
             comboBox.SelectedIndex = 0;
         }
 
@@ -181,5 +182,6 @@ namespace PartnersMatcher
             var comboBox = sender as ComboBox;
             comboBox.Text = comboBox.SelectedItem as string;
         }
+
     }
 }

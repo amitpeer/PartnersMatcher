@@ -18,9 +18,7 @@ namespace PartnersMatcher
         {
             _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDataBase + "; Persist Security Info=False");  // defining the source of the data base, meaning connection
             connectionError = "Connection error! try again later";
-
         }
-
 
         public void addUser(User user)
         {
@@ -29,15 +27,12 @@ namespace PartnersMatcher
             string lastName = user.LastName;
             string city = user.City;
             string pass = user.Pssword;
-
             string query = "insert into Users (User_Email,User_First_Name,User_Last_Name,User_city,User_password) values('" + email + "','" + firstName + "','" + lastName + "','" + city + "','" + pass + "')";
-
-            voidQueryToDB(query);
-
+            if (checkIfEmailExistsInDb(email))
+                throw new Exception(".האימייל כבר קיים במערכת");
+            voidQueryToDB(query);   
         }
-
-
-
+   
         public void addAd(Ad ad)
         {
 
@@ -47,10 +42,30 @@ namespace PartnersMatcher
             string admin = ad.Admin;
 
             string query = "insert into Ad_table (Ad_numb,Ad_category,Ad_location,Ad_admin) values('" + number + "','" + category + "','" + location + "','" + admin + "')";
-
+               
             voidQueryToDB(query);
+        }
 
-
+        public bool checkIfEmailExistsInDb(string email)
+        {
+            string query = "SELECT User_Email FROM Users WHERE User_Email = '" + email + "'";
+            try
+            {
+                _dbConn.Open();
+                OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                    return true;
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                _dbConn.Close();
+            }
+            return false;
         }
 
         public User connectUser(string email, string pass)
@@ -58,15 +73,12 @@ namespace PartnersMatcher
             User user = null;
             string query = "SELECT* FROM Users WHERE User_Email = '" + email + "'";
 
-
-
             string error = "", qEmail = "", qFname = "", qLname = "", qCity = "", qPass = "";
             try
             {
                 _dbConn.Open();
                 OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 OleDbDataReader reader = cmd.ExecuteReader();
-
                 while (reader.Read())
                 {
                     qEmail = reader.GetValue(0).ToString();
@@ -76,16 +88,13 @@ namespace PartnersMatcher
                     qPass = reader.GetString(4);
 
                 }
-
                 if (qPass == "" || qPass != pass)
                     error = "Wrong Email or Password, please try again";
                 else
                 {
                     user = new User(email, qFname, qLname, qPass, qCity);
                     error = connectionError;
-
                 }
-
             }
             catch (Exception)
             {
@@ -95,8 +104,6 @@ namespace PartnersMatcher
             {
                 _dbConn.Close();
             }
-
-
             return user;
         }
 
@@ -150,7 +157,7 @@ namespace PartnersMatcher
             }
             catch (Exception ex)
             {
-                throw new Exception("Wrong Parameters, please try again");
+                throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
 
 
             }

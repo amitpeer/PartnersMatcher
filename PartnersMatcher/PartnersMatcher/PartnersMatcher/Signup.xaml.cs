@@ -45,7 +45,7 @@ namespace PartnersMatcher
                 }
                 catch (Exception expection)
                 {
-                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + expection.ToString());
+                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + expection.Message);
                 }
             }
         }

@@ -10,11 +10,11 @@
     <Grid>
         <Label x:Name="label" Content="הרשמה" HorizontalAlignment="Left" Height="31" Margin="112,10,0,0" VerticalAlignment="Top" Width="63" FontWeight="Bold"/>
         <TextBox x:Name="tb_email" HorizontalAlignment="Left" Height="27" Margin="15,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193" RenderTransformOrigin="0.5,0.5"/>
-        <TextBox x:Name="tb_firstName" HorizontalAlignment="Left" Height="27" Margin="15,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
-        <TextBox x:Name="tb_lastName" HorizontalAlignment="Left" Height="27" Margin="15,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
+        <TextBox x:Name="tb_firstName" HorizontalAlignment="Left" Height="27" Margin="15,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
+        <TextBox x:Name="tb_lastName" HorizontalAlignment="Left" Height="27" Margin="17,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
         <TextBox x:Name="tb_city" HorizontalAlignment="Left" Height="27" Margin="15,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193"/>
-        <Label x:Name="label1" Content="סיסמא"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="213,172,0,0" VerticalAlignment="Top" Width="64"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Height="27" Margin="15,172,0,0" VerticalAlignment="Top" Width="193"/>
+        <Label x:Name="label1" Content="סיסמא"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="213,172,0,0" VerticalAlignment="Top" Width="64"/>
         <Button x:Name="button_signup" Content="הרשמה" HorizontalAlignment="Left" Height="25" Margin="86,228,0,0" VerticalAlignment="Top" Width="106" Click="button_signup_Click"/>
         <Label x:Name="label1_Copy" Content="אימייל"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="213,44,0,0" VerticalAlignment="Top" Width="64"/>
         <Label x:Name="label1_Copy1" Content="שם פרטי"  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="27" Margin="210,76,0,0" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.5,0.5"/>
