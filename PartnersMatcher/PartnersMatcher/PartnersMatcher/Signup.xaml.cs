@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,7 +41,9 @@ namespace PartnersMatcher
                 try
                 {
                     databaseUtils.addUser(user);
+                    sentValidationEmail(user);
                     MessageBox.Show("ההרשמה עברה בהצלחה והודעה לאימייל נשלחה.");
+
                     Close();
                 }
                 catch (Exception expection)
@@ -50,11 +53,31 @@ namespace PartnersMatcher
             }
         }
 
+
+
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBox tb = (TextBox)sender;
             tb.Text = string.Empty;
             tb.GotFocus -= TextBox_GotFocus;
+        }
+
+
+        private void sentValidationEmail(User user)
+        {
+            MailMessage mail = new MailMessage("partnersystemconf@gmail.com", user.Email);
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Host = "smtp.gmail.com";
+            client.Credentials = new System.Net.NetworkCredential("partnersystemconf@gmail.com", "partnermatcher");
+            client.EnableSsl = true;
+            mail.Subject = "!ברוך הבא למשפחת פרטנר מאטצ'ר";
+            mail.Body = "שלום "+ user.FirstName + "\n" + 
+                        "\nאנו שמחים שבחרת להצטרף אלינו ומאחלים לך שימוש מהנה באפליקציה"
+                        + ".לכל בעיה ניתן לפנות אלינו דרך שירות הלקוחות של יד2";
+            client.Send(mail);
         }
     }
 }
