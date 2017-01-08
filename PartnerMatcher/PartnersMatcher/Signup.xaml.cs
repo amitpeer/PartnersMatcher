@@ -47,7 +47,7 @@ namespace PartnersMatcher
                 }
                 catch (Exception expection)
                 {
-                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the from  Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255");
+                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255\nPlease read the readmi file for more information.");
                 }
             }
         }
