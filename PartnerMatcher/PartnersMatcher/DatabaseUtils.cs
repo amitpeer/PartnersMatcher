@@ -158,8 +158,6 @@ namespace PartnersMatcher
             catch (Exception ex)
             {
                 throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
-
-
             }
             finally
             {

@@ -43,12 +43,11 @@ namespace PartnersMatcher
                     databaseUtils.addUser(user);
                     sentValidationEmail(user);
                     MessageBox.Show("ההרשמה עברה בהצלחה והודעה לאימייל נשלחה.");
-
                     Close();
                 }
                 catch (Exception expection)
                 {
-                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + expection.Message);
+                    MessageBox.Show("ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the from  Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255");
                 }
             }
         }
