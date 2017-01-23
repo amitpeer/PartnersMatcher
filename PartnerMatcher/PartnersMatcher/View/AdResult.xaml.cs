@@ -11,8 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PartnersMatcher.Model;
 
-namespace PartnersMatcher
+namespace PartnersMatcher.View
 {
     /// <summary>
     /// Interaction logic for AdResult.xaml
@@ -36,7 +37,6 @@ namespace PartnersMatcher
                 listview.Items.Add(new AdSummary(ad));
             }
         }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

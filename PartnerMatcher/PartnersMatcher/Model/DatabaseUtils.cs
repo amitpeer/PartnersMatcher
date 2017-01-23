@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PartnersMatcher
+namespace PartnersMatcher.Model
 {
     class DatabaseUtils
     {
-
+        static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+        private static readonly string pathToDb = localPath + @"\Data\PartnerMatcherDB.accdb";
         OleDbConnection _dbConn;
         readonly string connectionError;
 
-        public DatabaseUtils(string pathToDataBase)
+        public DatabaseUtils()
         {
-            _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDataBase + "; Persist Security Info=False");  // defining the source of the data base, meaning connection
+            _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDb + "; Persist Security Info=False");  // defining the source of the data base, meaning connection
             connectionError = "Connection error! try again later";
         }
 
@@ -29,7 +30,7 @@ namespace PartnersMatcher
             string pass = user.Pssword;
             string query = "insert into Users (User_Email,User_First_Name,User_Last_Name,User_city,User_password) values('" + email + "','" + firstName + "','" + lastName + "','" + city + "','" + pass + "')";
             if (checkIfEmailExistsInDb(email))
-                throw new Exception(".האימייל כבר קיים במערכת");
+                throw new Exception("המשתמש כבר רשום במערכת, אנא בצע התחברות.");
             voidQueryToDB(query);   
         }
    
@@ -151,6 +152,14 @@ namespace PartnersMatcher
             try
             {
                 _dbConn.Open();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception("ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255\nPlease read the readme file for more information.");
+            }
+            try
+            {
                 OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 cmd.ExecuteNonQuery();
 

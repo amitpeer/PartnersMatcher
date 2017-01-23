@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PartnersMatcher.Model;
 
-namespace PartnersMatcher
+namespace PartnersMatcher.View
 {
     /// <summary>
     /// Interaction logic for AdSummary.xaml
@@ -28,7 +29,6 @@ namespace PartnersMatcher
             category1.Text = ad.Category;
             adid1.Text = ad.SerialNumber.ToString();
             Location1.Text = ad.Lcation;
-
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

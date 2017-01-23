@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PartnersMatcher.Properties {
+namespace PartnersMatcher.Model.Model.Properties {
     using System;
     
     

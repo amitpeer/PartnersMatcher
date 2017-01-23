@@ -14,20 +14,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PartnersMatcher.Controller;
+using PartnersMatcher.Model;
 
-namespace PartnersMatcher
+namespace PartnersMatcher.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window,IView
     {
+        static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+        private IController controller;
         List<string> _location;
         List<string> _category;
-        private static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-        private static readonly string pathToDb = localPath + @"\Data\PartnerMatcherDB.accdb";
         private bool? isLoggedIn;
         private User user;
         public bool? IsLoggedIn
@@ -43,15 +44,13 @@ namespace PartnersMatcher
                 loginChanged();
             }
         }
-
-        DatabaseUtils _dbUtils = new DatabaseUtils(pathToDb);
         public MainWindow()
         {
-
             loadLocationsAndCategorys();
             InitializeComponent();
-
-
+            IModel model = new PMModel();
+            controller = new PMController(this, model);
+            model.setController(controller);
         }
 
         private void loadLocationsAndCategorys()
@@ -62,25 +61,21 @@ namespace PartnersMatcher
             string categorys = srCategorys.ReadToEnd();
             srLocations.Close();
             srCategorys.Close();
-
-
             string[] splitLocations = locations.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);                                                            //look at the file format
             string[] splitCategorys = categorys.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-
             _location = splitLocations.ToList();
             _category = splitCategorys.ToList();
-
         }
 
         private void button_signup_Click(object sender, RoutedEventArgs e)
         {
-            Signup signup = new Signup();
+            Signup signup = new Signup(controller);
             signup.ShowDialog();
         }
 
         private void button_login_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            Login login = new Login(controller);
             IsLoggedIn = login.ShowDialog();
         }
 
@@ -121,19 +116,11 @@ namespace PartnersMatcher
             }
             else
             {
-                try
-                {
-                    adList = _dbUtils.getAdsByLocationAndCategory(tb_location.Text, tb_category.Text);
+                    adList = controller.getAdsByLocationAndCategory(tb_location.Text, tb_category.Text);
                     if (adList != null && adList.Count>0)
                         printAdsToList(adList);
                     else
                         MessageBox.Show(".מצטערים, לא מצאנו.אנא נסה שוב עם קטגוריה או מיקום שונים");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-
-                }
             }
         }
 
@@ -183,5 +170,9 @@ namespace PartnersMatcher
             comboBox.Text = comboBox.SelectedItem as string;
         }
 
+        public void showMessage(string text)
+        {
+            MessageBox.Show(text);
+        }
     }
 }
