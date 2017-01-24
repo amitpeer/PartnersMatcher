@@ -51,9 +51,9 @@ namespace PartnersMatcher.Model
             set { _city = value; }
         }
 
-        private List<Group> _groups;
+        private List<int> _groups;
 
-        public List<Group> Groups
+        public List<int> Groups
         {
             get { return _groups; }
             set { _groups = value; }
@@ -66,7 +66,7 @@ namespace PartnersMatcher.Model
             _lastName = lastName;
             _password = password;
             _city = city;
-            _groups = new List<Group>();
+            _groups = new List<int>();
         }
 
         public User() { }

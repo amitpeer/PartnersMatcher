@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PartnersMatcher.Controller;
+using PartnersMatcher.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +21,14 @@ namespace PartnersMatcher.View
     /// </summary>
     public partial class GroupPage : Window
     {
-        public GroupPage()
+        IController controller;
+        Group group;
+
+        public GroupPage(IController controller, Group group)
         {
+            Background = ((MainWindow)Application.Current.MainWindow).Background;
+            this.controller = controller;
+            this.group = group;
             InitializeComponent();
         }
     }
