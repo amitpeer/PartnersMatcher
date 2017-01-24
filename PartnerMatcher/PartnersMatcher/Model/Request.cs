@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PartnersMatcher.Model
 {
-    class Request
+    public class Request
     {
         private User user;
         private string groupId;
