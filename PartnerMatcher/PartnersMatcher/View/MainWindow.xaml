@@ -23,9 +23,11 @@
                 <ColumnDefinition Width="10*"/>
             </Grid.ColumnDefinitions>
 
+       
             <ComboBox x:Name="tb_location"  HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top" Width="120" Loaded="location_loaded" SelectionChanged="tb_location_SelectionChanged" Grid.ColumnSpan="2"/>
             <ComboBox x:Name="tb_category"  HorizontalAlignment="Left" Margin="57,27,0,0" VerticalAlignment="Top" Width="120" Loaded="catagory_loaded" SelectionChanged="tb_catagory_SelectionChanged" Grid.Column="2" />
             <Button x:Name="button_findMatch" Content="מצא לי שותפים" HorizontalAlignment="Left" Margin="132,69,0,56" Width="107" Click="button_findMatch_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Label x:Name="label1" Grid.ColumnSpan="3" Content=":חיפוש שותפים" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="28" Margin="130,0,0,0" VerticalAlignment="Top" Width="107"/>
         </Grid>
         <Label x:Name="label_mainContent" HorizontalContentAlignment="Right" Content="?ברוכים הבאים לפארטנר מאטצ'ר. מרגישים שאף אחד לא זורם על השטויות שלכם&#xA;&#xA;&#xA;&#xA;" HorizontalAlignment="Left" Height="29" Margin="15,130,0,0" VerticalAlignment="Top" Width="487"/>
         <Label x:Name="label_mainContent_Copy" HorizontalContentAlignment="Right" Content=".זה המקום למצוא את האנשים  שהחברים שלכם לא מוכנים להיות" HorizontalAlignment="Left" Height="29" Margin="15,164,0,0" VerticalAlignment="Top" Width="487"/>

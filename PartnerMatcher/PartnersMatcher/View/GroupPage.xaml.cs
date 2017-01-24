@@ -62,6 +62,11 @@ namespace PartnersMatcher.View
             {
                 listView_requests.Items.Add(controller.getUserByEmail(request.User).ToString());
             }
+            if (listView_requests.Items.Count == 0)
+            {
+                listView_requests.Visibility = Visibility.Hidden;
+                label_noRequests.Visibility = Visibility.Visible;
+            }
         }
 
         private void addUsersToMemeberList()
