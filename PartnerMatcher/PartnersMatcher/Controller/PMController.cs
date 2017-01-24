@@ -38,5 +38,10 @@ namespace PartnersMatcher.Controller
 
             return model.getAdsByLocationAndCategory(location, category);
         }
+
+        public void createNewGroup(string category, string location, string title, string adContent, string groupContent)
+        {
+            model.createNewGroup(category, location, title, adContent, groupContent);
+        }
     }
 }

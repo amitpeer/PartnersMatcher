@@ -13,6 +13,8 @@ namespace PartnersMatcher.Model
     {
         private IController controller;
         private DatabaseUtils databaseUtils;
+        private User _correntLoggedInUser;
+
         public PMModel()
         {
             databaseUtils = new DatabaseUtils();
@@ -30,6 +32,7 @@ namespace PartnersMatcher.Model
             {
                 controller.showMessage("לא הצלחנו להתחבר למסד הנתונים.\n" + e.Message);
             }
+            _correntLoggedInUser = user;
             return user;
         }
 
@@ -53,6 +56,7 @@ namespace PartnersMatcher.Model
                 controller.showMessage(e.Message);
             }
         }
+
         private void sentValidationEmail(User user)
         {
             MailMessage mail = new MailMessage("partnersystemconf@gmail.com", user.Email);
@@ -84,5 +88,9 @@ namespace PartnersMatcher.Model
             return adList;
         }
 
+        public void createNewGroup(string category, string location, string title, string adContent, string groupContent)
+        {
+            databaseUtils.createNewGrop(category, location, title, adContent, groupContent, _correntLoggedInUser.Email);
+        }
     }
 }

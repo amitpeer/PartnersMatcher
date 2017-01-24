@@ -59,7 +59,7 @@ namespace PartnersMatcher.Model
             string  tostring=_serialNumber.ToString() +" "+ _category.ToString()+" " + _admin.ToString();
             return tostring;
         }
-
+        
         public Ad() { }
     }
 }

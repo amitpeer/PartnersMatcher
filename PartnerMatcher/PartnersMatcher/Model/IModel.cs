@@ -17,7 +17,7 @@ namespace PartnersMatcher.Model
 
         List<Ad> getAdsByLocationAndCategory(string location, string category);
 
-        void createNewGroup(string category, string location, string title, string content);
+        void createNewGroup(string category, string location, string title, string adContent,string groupContent);
 
 
     }

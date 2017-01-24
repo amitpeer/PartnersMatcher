@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,8 +13,10 @@ namespace PartnersMatcher.Model
     {
         static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private static readonly string pathToDb = localPath + @"\Data\PartnerMatcherDB.accdb";
-        OleDbConnection _dbConn;
-        readonly string connectionError;
+        private OleDbConnection _dbConn;
+        private readonly string connectionError;
+        private readonly string dataBaseError ="ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255\nPlease read the readme file for more information.";
+
 
         public DatabaseUtils()
         {
@@ -60,7 +63,7 @@ namespace PartnersMatcher.Model
             }
             catch (Exception)
             {
-                throw new Exception();
+                throw new Exception(dataBaseError);
             }
             finally
             {
@@ -107,7 +110,7 @@ namespace PartnersMatcher.Model
             }
             return user;
         }
-
+        
         public List<Ad> getAdsByLocationAndCategory(string location, string category)
         {
             List<Ad> listOfAds = null;
@@ -156,7 +159,7 @@ namespace PartnersMatcher.Model
             }
             catch (Exception e)
             {
-                throw new Exception("ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255\nPlease read the readme file for more information.");
+                throw new Exception(dataBaseError);
             }
             try
             {
@@ -174,7 +177,15 @@ namespace PartnersMatcher.Model
             }
         }
 
+        public void createNewGrop(string category, string location, string title, string adContent,string groupContent, string userMail)
+        {
+            string addAdQuery = "insert into Ads_table (Ad_category,Ad_location,Ad_title,) values('" + category + "','" + location + "','" + title + "')";
+            voidQueryToDB(addAdQuery);
+            OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from Ads_table", _dbConn);
+            int adInseetedID = int.Parse(maxCommand.ExecuteScalar().ToString());
+            string addGroupQuery = "insert into Groups (group_adID,group_title,group_content,group_adminID) values('" + adInseetedID + "','" + title + "','" + groupContent + "','" + userMail + "')";
 
+        }
 
     }
 }
