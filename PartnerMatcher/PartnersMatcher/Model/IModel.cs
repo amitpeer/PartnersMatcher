@@ -11,7 +11,7 @@ namespace PartnersMatcher.Model
     {
         void setController(IController controller);
 
-        bool signUp(string email, string firstName, string lastName, string city, string password);
+        bool signUp(string email, string firstName, string lastName, string city, string password, int smokes, int religious, int animalLover);
 
         User login(string email, string pass);
 

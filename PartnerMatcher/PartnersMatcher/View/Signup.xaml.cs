@@ -37,7 +37,7 @@ namespace PartnersMatcher.View
             }
             else
             {                
-                if(controller.signUp(tb_email.Text, tb_firstName.Text, tb_lastName.Text, tb_city.Text, passwordBox.Password))
+                if(controller.signUp(tb_email.Text, tb_firstName.Text, tb_lastName.Text, tb_city.Text, passwordBox.Password,0,0,0))
                     Close();
             }
         }
