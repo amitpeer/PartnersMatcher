@@ -28,5 +28,9 @@ namespace PartnersMatcher.Controller
         void acceptUserToGroup(string email, int groupId);
 
         void declineUserToGroup(string email, int groupId);
+
+        void addRequest(string email, int groupId);
+
+
     }
 }
