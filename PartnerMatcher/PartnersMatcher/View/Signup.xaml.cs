@@ -50,6 +50,9 @@ namespace PartnersMatcher.View
 
         public Signup(IController controller)
         {
+            IsSmoke = 0;
+            IsAnimalLover = 0;
+            IsReligious = 0;
             InitializeComponent();
             tb_email.Focus();
             this.controller = controller;

@@ -197,7 +197,6 @@ namespace PartnersMatcher.View
         {
             CreateGroup createGroup = new CreateGroup(controller);
             createGroup.ShowDialog();
-            loginChanged();
         }
 
         private void listView_myGroups_MouseDoubleClick(object sender, MouseButtonEventArgs e)

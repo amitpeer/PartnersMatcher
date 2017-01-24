@@ -32,7 +32,6 @@ namespace PartnersMatcher.View
             this.controller = controller;
 
             // fill the labels with the Ad details
-            label_admin.Content = ad.Admin;
             label_category.Content = ad.Category;
             label_location.Content = ad.Location;
             label_title.Content = ad.Title;

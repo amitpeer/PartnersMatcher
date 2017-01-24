@@ -27,7 +27,7 @@
         </ListView>
         <Label x:Name="label_groupTitleForAdmin" Content="" HorizontalAlignment="Left" Height="26" Margin="567,27,0,0" VerticalAlignment="Top" Width="136"/>
         <Button x:Name="button_close" Content="סגור" HorizontalAlignment="Left" Height="25" Margin="26,287,0,0" VerticalAlignment="Top" Width="66" Click="button_close_Click"/>
-        <Label x:Name="label_noRequests" Visibility ="Hidden" Content="[אין כרגע משתמשים אשר ממתינים לאישור]" HorizontalAlignment="Left" Height="26" Margin="467,134,0,0" VerticalAlignment="Top" Width="236"/>
+        <Label x:Name="label_noRequests" FlowDirection="RightToLeft" Visibility ="Hidden" Content="[אין כרגע משתמשים אשר ממתינים לאישור]" HorizontalAlignment="Left" Height="26" Margin="424,134,0,0" VerticalAlignment="Top" Width="279"/>
 
     </Grid>
 </Window>
