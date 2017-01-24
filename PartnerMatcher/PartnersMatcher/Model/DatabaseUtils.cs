@@ -133,7 +133,7 @@ namespace PartnersMatcher.Model
             {
                 _dbConn.Open();
                 List<Request> groupRequest = getGroupRequest(id);
-                List<int> usersInGroup = getUsersForGroup(id);
+                List<string> usersInGroup = getUsersForGroup(id);
                 string query = "SELECT* from Groups WHERE group_id =" + id + "";
                 OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 string str = Convert.ToString(cmd.ExecuteScalar());
@@ -150,7 +150,7 @@ namespace PartnersMatcher.Model
                     groupAdmin = reader.GetString(4);
                 }
 
-                group = new Group(groupAd, groupAdmin, groupContent, groupTitle, id);
+                group = new Group(groupAd, groupAdmin, groupContent, groupTitle, id, usersInGroup, groupRequest);
             }
             catch (Exception)
             {
@@ -164,17 +164,17 @@ namespace PartnersMatcher.Model
             return group;
         }
 
-        private List<int> getUsersForGroup(int id)
+        private List<string> getUsersForGroup(int id)
         {
-            List<int> userGroups = new List<int>();
-            string query = "SELECT group_id from Groups_and_users WHERE user_email='" + id + "'";
+            List<string> userGroups = new List<string>();
+            string query = "SELECT user_email from Groups_and_users WHERE group_id='" + id + "'";
             OleDbCommand cmd = new OleDbCommand(query, _dbConn);
             OleDbDataReader reader = cmd.ExecuteReader();
-            string groupID = "";
+            string userEmail = "";
             while (reader.Read())
             {
-                groupID = reader.GetValue(0).ToString();
-                userGroups.Add(int.Parse(groupID));
+                userEmail = reader.GetValue(0).ToString();
+                userGroups.Add(userEmail);
             }
             return userGroups;
         }
@@ -257,8 +257,6 @@ namespace PartnersMatcher.Model
                     Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
                     listOfAds.Add(newAdd);
                 }
-
-
             }
             catch (Exception)
             {

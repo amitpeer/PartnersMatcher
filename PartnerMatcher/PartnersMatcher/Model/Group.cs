@@ -33,10 +33,12 @@ namespace PartnersMatcher.Model
             requests = new List<Request>();
         }
 
-        public Group(Ad ad, string admin, string content, List<string> users, List<Request> requests)
+        public Group(Ad ad, string admin, string content,string title,int id, List<string> users, List<Request> requests)
         {
+            this.id = id;
             this.ad = ad;
             this.admin = admin;
+            this.title = title;
             this.content = content;
             this.users = users;
             this.requests = requests;

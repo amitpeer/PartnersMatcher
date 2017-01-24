@@ -25,8 +25,8 @@ namespace PartnersMatcher.View
         private Group group;
         private Admin admin;
         private bool isAdmin;
-        private const int ADMIN_WIDTH = 490;
-        private const int REGULAR_WIDTH = 740;
+        private const int ADMIN_WIDTH = 740;
+        private const int REGULAR_WIDTH = 402;
 
         public GroupPage(IController controller, Group group, User user)
         {
@@ -41,17 +41,18 @@ namespace PartnersMatcher.View
                 isAdmin = true;
                 admin = new Admin(user);
                 Width = ADMIN_WIDTH;
+                label_groupTitleForAdmin.Content = group.Title;
                 addUsersToRequestsList();
             }
             else
             {
                 isAdmin = false;
                 Width = REGULAR_WIDTH;
+                label_groupTitle.Content = group.Title;
             }
 
             // fill in the labels with the group details
             label_content.Content = group.Content;
-            label_groupTitle.Content = group.Title;
             addUsersToMemeberList();
         }
 
@@ -85,6 +86,11 @@ namespace PartnersMatcher.View
                 controller.declineUserToGroup(selectedUserEmail, group.Id);
             }
 
+        }
+
+        private void button_close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
