@@ -53,5 +53,7 @@ namespace PartnersMatcher.Model
         public string Title { get { return title; } set { title = value; } }     
 
         public int Id { get { return id; } set { id = value; } }
+
+        public string Content { get { return content; } set { content = value; } }
     }
 }
