@@ -53,5 +53,15 @@ namespace PartnersMatcher.Controller
         {
             return model.getUserByEmail(email);
         }
+
+        public void acceptUserToGroup(string email, int groupId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void declineUserToGroup(string email, int groupId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

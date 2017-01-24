@@ -48,7 +48,7 @@ namespace PartnersMatcher.Model
 
         public List<string> Users { get { return users; } set { users = value; } }
 
-        public List<Request> Request { get { return requests; } set { requests = value; } }
+        public List<Request> Requests { get { return requests; } set { requests = value; } }
 
         public string Title { get { return title; } set { title = value; } }     
 
