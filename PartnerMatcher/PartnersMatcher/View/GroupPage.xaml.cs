@@ -87,5 +87,10 @@ namespace PartnersMatcher.View
             }
 
         }
+
+        private void button_close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

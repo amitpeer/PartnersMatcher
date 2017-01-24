@@ -26,6 +26,7 @@
             </ListView.View>
         </ListView>
         <Label x:Name="label_groupTitleForAdmin" Content="" HorizontalAlignment="Left" Height="26" Margin="567,27,0,0" VerticalAlignment="Top" Width="136"/>
+        <Button x:Name="button_close" Content="סגור" HorizontalAlignment="Left" Height="25" Margin="26,287,0,0" VerticalAlignment="Top" Width="66" Click="button_close_Click"/>
 
     </Grid>
 </Window>
