@@ -18,9 +18,9 @@ namespace PartnersMatcher.Controller
             this.model = model;
         }
 
-        public bool signUp(string email, string firstName, string lastName, string city, string password)
+        public bool signUp(string email, string firstName, string lastName, string city, string password,int smokes, int religious, int animalLover)
         {
-            return model.signUp(email,firstName,lastName,city,password);
+            return model.signUp(email,firstName,lastName,city,password, smokes, religious, animalLover);
         }
 
         public void showMessage(string text)

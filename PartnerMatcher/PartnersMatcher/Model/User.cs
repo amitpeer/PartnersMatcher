@@ -14,11 +14,12 @@ namespace PartnersMatcher.Model
         private string _password;
         private string _city;
         private List<int> _groups;
-
-
+        private int _smoke;
+        private int _religious;
+        private int _animalLover;
         public User() { }
 
-        public User(string email, string firstName, string lastName, string city, string password)
+        public User(string email, string firstName, string lastName, string city, string password, int smokes, int religious, int animalLover)
         {
             _email = email;
             _firstName = firstName;
@@ -36,6 +37,9 @@ namespace PartnersMatcher.Model
             _password = other._password;
             _city = other.City;
             _groups = other.Groups;
+            _animalLover = other.AnimalLover;
+            _religious = other._religious;
+            _smoke = other.Smoke;
         }
 
         public string Email
@@ -68,7 +72,21 @@ namespace PartnersMatcher.Model
             get { return _groups; }
             set { _groups = value; }
         }
-
+        public int AnimalLover
+        {
+            get { return _animalLover; }
+            set { _animalLover = value; }
+        }
+        public int Religious
+        {
+            get { return _religious; }
+            set { _religious = value; }
+        }
+        public int Smoke
+        {
+            get { return _smoke; }
+            set { _smoke = value; }
+        }
         public override string ToString()
         {
             return FirstName + " " + LastName + ", " + City + ", " + Email;
