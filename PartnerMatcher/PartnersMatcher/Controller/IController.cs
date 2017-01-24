@@ -29,7 +29,7 @@ namespace PartnersMatcher.Controller
 
         void declineUserToGroup(string email, int groupId);
 
-        void addRequest(string email, int groupId);
+        void addRequest(int adId);
 
 
     }

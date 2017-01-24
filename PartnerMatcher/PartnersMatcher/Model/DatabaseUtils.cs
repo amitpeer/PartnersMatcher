@@ -125,9 +125,9 @@ namespace PartnersMatcher.Model
             return user;
         }
 
-        internal void addRequestToGroup(string email, int groupId)
+        internal void addRequestToGroup(int adId,string email)
         {
-            string checkRecExistQuery = "SELECT group_id from Requests WHERE user_id='" + email + "' AND group_id='" + groupId + "'";
+            string checkRecExistQuery = "SELECT group_id from Groups WHERE group_adID='" + adId + "'";
             try
             {
                 _dbConn.Open();
@@ -142,7 +142,7 @@ namespace PartnersMatcher.Model
                     throw new Exception("כבר ביקשת להצטרף לקבוצה זו,נא המתן לאישור");
                 else
                 {
-                    string insertRequest = "insert into Requests (group_id,user_id) values('" + groupId + "','" + email + "')";
+                    string insertRequest = "insert into Requests (group_id,user_id) values('" + answer + "','" + email + "')";
                     voidQueryToDB(insertRequest);
 
                 }
@@ -153,7 +153,7 @@ namespace PartnersMatcher.Model
             }
             finally
             {
-                //_dbConn.Close();
+                _dbConn.Close();
             }
         }
             

@@ -20,8 +20,11 @@ namespace PartnersMatcher.Model
         void createNewGroup(string category, string location, string title, string adContent,string groupContent);
 
         Group getGroupById(int id);
+
         User getUserByEmail(string email);
+
         void acceptUserToGroup(string email, int groupId);
-        void addRequestForGroup(string email, int groupId);
+
+        void addRequestForGroup(int adIdd);
     }
 }

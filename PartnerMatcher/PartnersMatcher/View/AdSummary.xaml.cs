@@ -22,10 +22,13 @@ namespace PartnersMatcher.View
     public partial class AdSummary : UserControl
     {
         Ad ad;
-        public AdSummary(Ad ad)
+        User user;
+
+        public AdSummary(User user, Ad ad)
         {
             InitializeComponent();
             this.ad = ad;
+            this.user = user;
             category1.Text = ad.Category;
             adid1.Text = ad.SerialNumber.ToString();
             Location1.Text = ad.Location;
@@ -33,7 +36,7 @@ namespace PartnersMatcher.View
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("שירות זה אינו זמין כרגע");
+            RequestPage requestPage = new RequestPage(user, ad);
         }
     }
 }
