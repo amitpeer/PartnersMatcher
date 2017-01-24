@@ -97,6 +97,7 @@ namespace PartnersMatcher.Model
                 else
                 {
                     user = new User(email, qFname, qLname, qPass, qCity);
+                    user.Groups = getUserGroups(user.Email);
                     error = connectionError;
                 }
             }
@@ -110,7 +111,22 @@ namespace PartnersMatcher.Model
             }
             return user;
         }
-        
+
+        private List<Group> getUserGroups(string email)
+        {
+            List<Group> userGroups = new List<Group>();
+            string query = "SELECT* from (SELECT* from Groups_and_users WHERE user_email= '" + email + "')S,WHERE S.group_id = Groups.group.id";
+            OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            
+            while (reader.Read())
+            {
+                allGroupID.Add(reader[0].ToString());
+            }
+
+            return userGroups;
+        }
+
         public List<Ad> getAdsByLocationAndCategory(string location, string category)
         {
             List<Ad> listOfAds = null;
@@ -189,7 +205,6 @@ namespace PartnersMatcher.Model
 
         private int getLastinSertedId(string tableName)
         {
-
             Int32 adInseetedID = 0;
             try
             {
@@ -202,7 +217,6 @@ namespace PartnersMatcher.Model
             }
             try
             {
-             
                 OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from "+tableName, _dbConn);
                 adInseetedID = (Int32)maxCommand.ExecuteScalar();
 
@@ -210,13 +224,11 @@ namespace PartnersMatcher.Model
             catch (Exception ex)
             {
                 throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
-
             }
             finally
             {
                 _dbConn.Close();
             }
-
             return adInseetedID;
         }
 

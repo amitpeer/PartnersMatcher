@@ -66,6 +66,8 @@ namespace PartnersMatcher.Model
             _lastName = lastName;
             _password = password;
             _city = city;
+            _groups = new List<Group>();
+
         }
 
         public User() { }
