@@ -57,7 +57,7 @@ namespace PartnersMatcher.View
 
         private void addUsersToRequestsList()
         {
-            foreach(Request request in group.Request)
+            foreach(Request request in group.Requests)
             {
                 listView_requests.Items.Add(controller.getUserByEmail(request.User).ToString());
             }
@@ -73,14 +73,16 @@ namespace PartnersMatcher.View
 
         private void listView_requests_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string selectedUserEmail = group.Requests[listView_requests.SelectedIndex].User;
+
             MessageBoxResult result = MessageBox.Show("?האם ברצונך לאשר משתמש זה לקבוצה", "אישור", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
-                
+                controller.acceptUserToGroup(selectedUserEmail, group.Id);
             }
             else
             {
-
+                controller.declineUserToGroup(selectedUserEmail, group.Id);
             }
 
         }
