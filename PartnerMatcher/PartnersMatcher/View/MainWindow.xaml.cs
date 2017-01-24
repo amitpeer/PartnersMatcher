@@ -32,7 +32,7 @@ namespace PartnersMatcher.View
         private bool? isLoggedIn;
         private User user;
         private const int LOGGED_IN_WIDTH = 667;
-        private const int LOGGED_OUT_WIDTH = 650;
+        private const int LOGGED_OUT_WIDTH = 522;
 
         public bool? IsLoggedIn
         {
@@ -115,7 +115,7 @@ namespace PartnersMatcher.View
         {
             foreach(Model.Group group in user.Groups)
             {
-                listView_myGroups.Items.Add(group.t)
+                listView_myGroups.Items.Add(group.Title);
             }
         }
 

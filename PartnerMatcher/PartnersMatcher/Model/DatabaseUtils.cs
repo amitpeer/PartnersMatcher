@@ -130,9 +130,9 @@ namespace PartnersMatcher.Model
                     string qCategory = reader.GetString(1);
                     string qLocation = reader.GetString(2);
                     string qAdmin = reader.GetString(3);
+                    string title = "";
 
-
-                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, qAdmin);
+                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, qAdmin, title);
                     listOfAds.Add(newAdd);
                 }
 
