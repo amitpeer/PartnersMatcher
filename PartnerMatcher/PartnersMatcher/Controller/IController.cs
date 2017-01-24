@@ -22,6 +22,6 @@ namespace PartnersMatcher.Controller
 
         Group getGroupById(int id);
 
-
+        User getUserByEmail(string email);
     }
 }

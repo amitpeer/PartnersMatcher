@@ -9,55 +9,14 @@ namespace PartnersMatcher.Model
     public class User
     {
         private string _email;
-        public string Email
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
-
         private string _firstName;
-
-        public string FirstName
-        {
-            get { return _firstName; }
-            set { _firstName = value; }
-        }
-
-
         private string _lastName;
-
-        public string LastName
-        {
-            get { return _lastName; }
-            set { _lastName = value; }
-        }
-
-
-
         private string _password;
-
-        public string Pssword
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
-
-
         private string _city;
-
-        public string City
-        {
-            get { return _city; }
-            set { _city = value; }
-        }
-
         private List<int> _groups;
+        private User user;
 
-        public List<int> Groups
-        {
-            get { return _groups; }
-            set { _groups = value; }
-        }
+        public User() { }
 
         public User(string email, string firstName, string lastName, string city, string password)
         {
@@ -69,6 +28,46 @@ namespace PartnersMatcher.Model
             _groups = new List<int>();
         }
 
-        public User() { }
+        public User(User other)
+        {
+            _email = other.Email;
+            _firstName = other.FirstName;
+            _lastName = other.LastName;
+            _password = other._password;
+            _city = other.City;
+            _groups = other.Groups;
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+        public string FirstName
+        {
+            get { return _firstName; }
+            set { _firstName = value; }
+        }
+        public string LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
+        }
+        public string Pssword
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+        public string City
+        {
+            get { return _city; }
+            set { _city = value; }
+        }
+        public List<int> Groups
+        {
+            get { return _groups; }
+            set { _groups = value; }
+        }
+
     }
 }

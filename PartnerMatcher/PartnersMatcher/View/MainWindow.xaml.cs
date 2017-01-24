@@ -113,10 +113,10 @@ namespace PartnersMatcher.View
 
         private void addGroupsToListView()
         {
-            //foreach(Model.Group group in user.Groups)
-            //{
-            //    listView_myGroups.Items.Add(group.Title);
-            //}
+            foreach(int id in user.Groups)
+            {
+                listView_myGroups.Items.Add(controller.getGroupById(id).Title);
+            }
         }
 
         public void notifyMe(User user)
@@ -200,8 +200,9 @@ namespace PartnersMatcher.View
 
         private void listView_myGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Model.Group selectedGroup = user.Groups[listView_myGroups.SelectedIndex];
-
+            Model.Group selectedGroup = controller.getGroupById(user.Groups[listView_myGroups.SelectedIndex]);
+            GroupPage groupPage = new GroupPage(controller, selectedGroup, user);
+            groupPage.ShowDialog();
         }
     }
 }
