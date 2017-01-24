@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PartnersMatcher.Model
 {
-    class Admin : User
+    public class Admin : User
     {
     }
 }

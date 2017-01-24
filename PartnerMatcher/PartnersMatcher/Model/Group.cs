@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PartnersMatcher.Model
 {
-    class Group
+    public class Group
     {
         private Ad ad;
         private Admin admin;

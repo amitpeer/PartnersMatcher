@@ -15,7 +15,6 @@ namespace PartnersMatcher.Model
             set { _email = value; }
         }
 
-
         private string _firstName;
 
         public string FirstName
@@ -52,7 +51,13 @@ namespace PartnersMatcher.Model
             set { _city = value; }
         }
 
+        private List<Group> _groups;
 
+        public List<Group> Groups
+        {
+            get { return _groups; }
+            set { _groups = value; }
+        }
 
         public User(string email, string firstName, string lastName, string city, string password)
         {
