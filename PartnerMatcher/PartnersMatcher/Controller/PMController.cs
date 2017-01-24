@@ -46,12 +46,12 @@ namespace PartnersMatcher.Controller
 
         public Group getGroupById(int id)
         {
-            throw new NotImplementedException();
+            return model.getGroupById(id);
         }
 
         public User getUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            return model.getUserByEmail(email);
         }
 
         public void acceptUserToGroup(string email, int groupId)
