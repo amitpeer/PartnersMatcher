@@ -20,6 +20,6 @@ namespace PartnersMatcher.Controller
 
         void createNewGroup(string category, string location, string title, string adContent, string groupContent);
 
-
+        Group getGroupById(int id);
     }
 }
