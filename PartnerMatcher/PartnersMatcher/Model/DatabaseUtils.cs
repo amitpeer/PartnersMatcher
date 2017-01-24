@@ -137,7 +137,7 @@ namespace PartnersMatcher.Model
                  throw new Exception("כבר ביקשת להצטרף לקבוצה זו,נא המתן לאישור");
             else
             {
-                string insertRequest = "insert into Requests (group_id,user_id) values('" + answer + "','" + email + "')";
+                string insertRequest = "insert into Requests (group_id,user_email) values('" + groupID + "','" + email + "')";
                 voidQueryToDB(insertRequest);
 
             }
@@ -147,9 +147,14 @@ namespace PartnersMatcher.Model
         public bool isQueryEmpty(string query,out string answer)
         {
             answer = "";
+            bool dbWasOpen = true;
             try
             {
-                _dbConn.Open();
+                if (_dbConn.State != ConnectionState.Open)
+                {
+                    _dbConn.Open();
+                    dbWasOpen = false;
+                }
                 OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 OleDbDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -166,9 +171,10 @@ namespace PartnersMatcher.Model
             }
             finally
             {
-                _dbConn.Close();
+                if (!dbWasOpen)
+                    _dbConn.Close();
             }
-            return false;
+            return true;
         }
             
         public Group getGroupByID(int id)
@@ -324,7 +330,7 @@ namespace PartnersMatcher.Model
             string groupID = "";
             isQueryEmpty(getGroupID, out groupID);
 
-            string checkRecExistQuery = "SELECT group_id from Groups_andUsers WHERE user_email='" + email + "' AND group_id='" + groupID + "'";
+            string checkRecExistQuery = "SELECT group_id from Groups_and_users WHERE user_email='" + email + "' AND group_id='" + groupID + "'";
 
             string answer = "";
             if (isQueryEmpty(checkRecExistQuery, out answer))
@@ -351,7 +357,7 @@ namespace PartnersMatcher.Model
             }
             catch (Exception ex)
             {
-                throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
+                throw new Exception("בעייה בהכנסה למסד הנתונים");
             }
             finally
             {
@@ -411,6 +417,7 @@ namespace PartnersMatcher.Model
             string query = "DELETE FROM "+ tableName+ " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'";
             voidQueryToDB(query);
         }
+
         private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo, string fieldName2, string WhereFieldEqualTo2)
         {
             string query = "DELETE FROM " + tableName + " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'" +" AND ["+  fieldName2 + "] = '" + WhereFieldEqualTo2 + "'";

@@ -116,6 +116,7 @@ namespace PartnersMatcher.Model
             try
             {
                 databaseUtils.addRequestToGroup(adId,_correntLoggedInUser.Email);
+                controller.showMessage("הבקשה נשלחה וממתינה לאישור מנהל הקבוצה.");
             }
             catch (Exception e)
             {
