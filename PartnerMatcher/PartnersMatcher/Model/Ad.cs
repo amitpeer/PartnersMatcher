@@ -14,6 +14,7 @@ namespace PartnersMatcher.Model
         private string _location;
         private string _admin;
         private string _title;
+        private string _content;
 
         public int SerialNumber
         {
@@ -51,6 +52,8 @@ namespace PartnersMatcher.Model
         }
 
         public string Title { get { return _title; } set { _title = value; } }
+
+        public string Content { get { return _content; } set { _content = value; } }
 
         public override string ToString()
         {
