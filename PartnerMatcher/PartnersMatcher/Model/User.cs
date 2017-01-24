@@ -69,5 +69,10 @@ namespace PartnersMatcher.Model
             set { _groups = value; }
         }
 
+        public override string ToString()
+        {
+            return FirstName + " " + LastName + ", " + City + ", " + Email;
+        }
+
     }
 }

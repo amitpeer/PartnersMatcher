@@ -49,7 +49,10 @@ namespace PartnersMatcher.View
 
         private void addUsersToMemeberList()
         {
-            
+            foreach(string email in group.Users)
+            {
+                listView_members.Items.Add(controller.getUserByEmail(email).ToString());
+            }
         }
     }
 }
