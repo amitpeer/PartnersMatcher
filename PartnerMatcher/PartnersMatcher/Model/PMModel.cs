@@ -105,5 +105,10 @@ namespace PartnersMatcher.Model
         {
             return databaseUtils.getUserByEmail(email);
         }
+
+        public void acceptUserToGroup(string email, int groupId)
+        {
+            databaseUtils.addUserToGroup(email, groupId);
+        }
     }
 }
