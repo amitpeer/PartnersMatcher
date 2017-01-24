@@ -31,7 +31,10 @@ namespace PartnersMatcher.Model
             string lastName = user.LastName;
             string city = user.City;
             string pass = user.Pssword;
-            string query = "insert into Users (User_Email,User_First_Name,User_Last_Name,User_city,User_password) values('" + email + "','" + firstName + "','" + lastName + "','" + city + "','" + pass + "')";
+            int smokes = user.Smoke;
+            int religious = user.Religious;
+            int animalLover = user.AnimalLover;
+            string query = "insert into Users (User_Email,User_First_Name,User_Last_Name,User_city,User_password,Smokes,Religious,Animal_Lover) values('" + email + "','" + firstName + "','" + lastName + "','" + city + "','" + pass + "','" + smokes + "','" + religious + "','" + animalLover + "')";
             if (checkIfEmailExistsInDb(email))
                 throw new Exception("המשתמש כבר רשום במערכת, אנא בצע התחברות.");
             voidQueryToDB(query);   
@@ -78,6 +81,7 @@ namespace PartnersMatcher.Model
             string query = "SELECT* FROM Users WHERE User_Email = '" + email + "'";
 
             string error = "", qEmail = "", qFname = "", qLname = "", qCity = "", qPass = "";
+            int qSmoke = 0, qReligious = 0, qAnimalLover = 0;
             try
             {
                 _dbConn.Open();
@@ -90,13 +94,16 @@ namespace PartnersMatcher.Model
                     qLname = reader.GetString(2);
                     qCity = reader.GetString(3);
                     qPass = reader.GetString(4);
+                    qSmoke = reader.GetInt32(5);
+                    qReligious = reader.GetInt32(6);
+                    qAnimalLover = reader.GetInt32(7);
 
                 }
                 if (qPass == "" || qPass != pass)
                     error = "Wrong Email or Password, please try again";
                 else
                 {
-                    user = new User(email, qFname, qLname, qPass, qCity);
+                    user = new User(email, qFname, qLname, qPass, qCity,qSmoke,qReligious,qAnimalLover);
                     user.Groups = getUserGroups(user.Email);
                     error = connectionError;
                 }
