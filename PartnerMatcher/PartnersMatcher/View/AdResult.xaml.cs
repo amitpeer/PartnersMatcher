@@ -28,13 +28,13 @@ namespace PartnersMatcher.View
             set { adList = value; }
         }
 
-        public AdResult(List<Ad> adList)
+        public AdResult(User user, List<Ad> adList)
         {
             InitializeComponent();
             AdList = adList;
             foreach (Ad ad in adList)
             {
-                listview.Items.Add(new AdSummary(ad));
+                listview.Items.Add(new AdSummary(user, ad));
             }
         }
         private void button_Click(object sender, RoutedEventArgs e)
