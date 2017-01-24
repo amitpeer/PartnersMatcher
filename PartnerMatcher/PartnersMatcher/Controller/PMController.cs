@@ -43,5 +43,10 @@ namespace PartnersMatcher.Controller
         {
             model.createNewGroup(category, location, title, adContent, groupContent);
         }
+
+        public Group getGroupById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -95,5 +95,10 @@ namespace PartnersMatcher.Model
         {
             databaseUtils.createNewGrop(category, location, title, adContent, groupContent, _correntLoggedInUser.Email);
         }
+
+        public Group getGroupById(int id)
+        {
+            return databaseUtils.getGroupByID(id);
+        }
     }
 }

@@ -112,14 +112,15 @@ namespace PartnersMatcher.Model
             return user;
         }
 
-        private List<Group> getUserGroups(string email)
+        public Group getGroupByID(int id)
         {
-            List<Group> userGroups = new List<Group>();
-            string query = "SELECT* from (SELECT* from Groups_and_users WHERE user_email= '" + email + "')S,WHERE S.group_id = Groups.group.id";
+            Group group = new Group();
+            string query = "SELECT* from Groups WHERE group_id = '" + id + "'";
             OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            string str = Convert.ToString(cmd.ExecuteScalar());
             OleDbDataReader reader = cmd.ExecuteReader();
             string groupID = ""; string groupAdID = ""; string groupTitle = "";
-            string groupContent = "";  string groupAdmin = "";
+            string groupContent = ""; string groupAdmin = "";
             while (reader.Read())
             {
                 groupID = reader.GetValue(0).ToString();
@@ -127,9 +128,22 @@ namespace PartnersMatcher.Model
                 groupTitle = reader.GetString(2);
                 groupContent = reader.GetString(3);
                 groupAdmin = reader.GetString(4);
-                userGroups.Add(new Group(new Ad(), groupAdmin, groupContent, groupTitle, int.Parse(groupID));
             }
+            return group;
+        }
 
+        private List<int> getUserGroups(string email)
+        {
+            List<int> userGroups = new List<int>();
+            string query = "SELECT group_id from Groups_and_users WHERE user_email='" + email + "'";
+            OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            string groupID = "";
+            while (reader.Read())
+            {
+                groupID = reader.GetValue(0).ToString();
+                userGroups.Add(int.Parse(groupID));
+            }
             return userGroups;
         }
 
