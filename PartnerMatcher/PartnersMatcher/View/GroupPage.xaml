@@ -9,7 +9,7 @@
     <Grid Margin="0,0,8,0">
         <Label x:Name="label_groupTitle" Content="" HorizontalAlignment="Left" Height="26" Margin="245,13,0,0" VerticalAlignment="Top" Width="136"/>
         <Label x:Name="label_members" Content="חברי הקבוצה" HorizontalContentAlignment="right" HorizontalAlignment="Left" Height="26" Margin="294,64,0,0" VerticalAlignment="Top" Width="87"/>
-        <ListView x:Name="listView_members" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="181" Margin="15,95,0,0" VerticalAlignment="Top" Width="366">
+        <ListView x:Name="listView_members" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="181" Margin="15,95,0,0" VerticalAlignment="Top" Width="366" MouseRightButtonUp="listView_members_MouseRightButtonUp">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -18,7 +18,7 @@
         </ListView>
         <Label x:Name="label_content" Content=""  HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="51" Margin="17,34,0,0" VerticalAlignment="Top" Width="269"/>
         <Label x:Name="label_members_Copy" Content="ממתינים לאישור" HorizontalContentAlignment="right" HorizontalAlignment="Left" Height="26" Margin="617,64,0,0" VerticalAlignment="Top" Width="96"/>
-        <ListView x:Name="listView_requests" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="181" Margin="388,95,0,0" VerticalAlignment="Top" Width="325" PreviewMouseDoubleClick="listView_requests_PreviewMouseDoubleClick">
+        <ListView x:Name="listView_requests" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="181" Margin="388,95,0,0" VerticalAlignment="Top" Width="325" PreviewMouseDoubleClick="listView_requests_PreviewMouseDoubleClick" MouseRightButtonUp="listView_requests_MouseRightButtonUp">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
