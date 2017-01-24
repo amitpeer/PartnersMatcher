@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PartnersMatcher.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,15 @@ namespace PartnersMatcher.View
     /// </summary>
     public partial class RequestPage : Window
     {
-        public RequestPage()
+        private User user;
+        private Ad ad;
+
+        public RequestPage(User user, Ad ad)
         {
             InitializeComponent();
+            Background = ((MainWindow)Application.Current.MainWindow).Background;
+            this.user = user;
+            this.ad = ad;
         }
     }
 }

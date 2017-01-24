@@ -31,6 +31,8 @@ namespace PartnersMatcher.Controller
 
         void addRequest(int adId);
 
+        bool isUserInGroup(int adId);
+
 
     }
 }

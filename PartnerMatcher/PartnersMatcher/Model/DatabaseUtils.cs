@@ -125,6 +125,8 @@ namespace PartnersMatcher.Model
             return user;
         }
 
+        
+
         internal void addRequestToGroup(int adId,string email)
         {
             string checkRecExistQuery = "SELECT group_id from Groups WHERE group_adID='" + adId + "'";
@@ -374,7 +376,22 @@ namespace PartnersMatcher.Model
         {
                 string query = "insert into Groups_and_users (group_id,user_email) values('" + groupId + "','" + email + "')";
                 voidQueryToDB(query);
+                deleteRecordFromTable("Requests","group_id","groupId","user_email", "email");
+        }
 
+        private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo)
+        {
+            string query = "DELETE FROM "+ tableName+ " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'";
+            voidQueryToDB(query);
+        }
+        private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo, string fieldName2, string WhereFieldEqualTo2)
+        {
+            string query = "DELETE FROM " + tableName + " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'" +" AND ["+  fieldName2 + "] = '" + WhereFieldEqualTo2 + "'";
+            voidQueryToDB(query);
+        }
+        internal void declineUserToGroup(string email, int groupId)
+        {
+            deleteRecordFromTable("Requests", "group_id", "groupId", "user_email", "email");
         }
     }
 }

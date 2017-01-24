@@ -143,7 +143,7 @@ namespace PartnersMatcher.View
 
         private void printAdsToList(List<Ad> adList)
         {
-            AdResult adResult = new AdResult(adList);
+            AdResult adResult = new AdResult(user, adList);
             adResult.ShowDialog();
         }
 
