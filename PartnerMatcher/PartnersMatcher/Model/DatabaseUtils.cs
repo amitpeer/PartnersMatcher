@@ -126,7 +126,7 @@ namespace PartnersMatcher.Model
             {
                 _dbConn.Open();
                 List<Request> groupRequest = getGroupRequest(id);
-                List<int> usersInGroup = getUsersForGroup(id);
+                //List<int> usersInGroup = getUsersForGroup(id);
                 string query = "SELECT* from Groups WHERE group_id =" + id + "";
                 OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 string str = Convert.ToString(cmd.ExecuteScalar());
@@ -250,8 +250,6 @@ namespace PartnersMatcher.Model
                     Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
                     listOfAds.Add(newAdd);
                 }
-
-
             }
             catch (Exception)
             {
