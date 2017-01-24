@@ -198,11 +198,14 @@ namespace PartnersMatcher.View
             createGroup.ShowDialog();
         }
 
-        private void listView_myGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listView_myGroups_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Model.Group selectedGroup = controller.getGroupById(user.Groups[listView_myGroups.SelectedIndex]);
-            GroupPage groupPage = new GroupPage(controller, selectedGroup, user);
-            groupPage.ShowDialog();
+            if (isLoggedIn == true)
+            {
+                Model.Group selectedGroup = controller.getGroupById(user.Groups[listView_myGroups.SelectedIndex]);
+                GroupPage groupPage = new GroupPage(controller, selectedGroup, user);
+                groupPage.ShowDialog();
+            }
         }
     }
 }
