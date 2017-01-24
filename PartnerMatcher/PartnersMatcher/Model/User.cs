@@ -26,6 +26,9 @@ namespace PartnersMatcher.Model
             _lastName = lastName;
             _password = password;
             _city = city;
+            _smoke = smokes;
+            _religious = religious;
+            _animalLover = animalLover;
             _groups = new List<int>();
         }
 
