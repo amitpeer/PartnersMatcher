@@ -197,5 +197,11 @@ namespace PartnersMatcher.View
             CreateGroup createGroup = new CreateGroup(controller);
             createGroup.ShowDialog();
         }
+
+        private void listView_myGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Model.Group selectedGroup = user.Groups[listView_myGroups.SelectedIndex];
+
+        }
     }
 }
