@@ -111,11 +111,11 @@ namespace PartnersMatcher.Model
             databaseUtils.addUserToGroup(email, groupId);
         }
 
-        public void addRequestForGroup(string email, int groupId)
+        public void addRequestForGroup(int adId)
         {
             try
             {
-                databaseUtils.addRequestToGroup(email, groupId);
+                databaseUtils.addRequestToGroup(adId,_correntLoggedInUser.Email);
             }
             catch (Exception e)
             {
