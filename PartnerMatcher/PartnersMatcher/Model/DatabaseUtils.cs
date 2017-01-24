@@ -20,7 +20,7 @@ namespace PartnersMatcher.Model
 
         public DatabaseUtils()
         {
-            _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDb + "; Persist Security Info=False");  // defining the source of the data base, meaning connection
+            _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDb + "; Persist Security Info=False");  // defining the source of the data base, meaning connection           
             connectionError = "Connection error! try again later";
         }
 
@@ -376,7 +376,7 @@ namespace PartnersMatcher.Model
         {
                 string query = "insert into Groups_and_users (group_id,user_email) values('" + groupId + "','" + email + "')";
                 voidQueryToDB(query);
-                deleteRecordFromTable("Requests","group_id","groupId","user_email", "email");
+                deleteRecordFromTable("Requests","group_id",groupId.ToString(),"user_email", email);
         }
 
         private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo)
@@ -391,7 +391,7 @@ namespace PartnersMatcher.Model
         }
         internal void declineUserToGroup(string email, int groupId)
         {
-            deleteRecordFromTable("Requests", "group_id", "groupId", "user_email", "email");
+            deleteRecordFromTable("Requests", "group_id", groupId.ToString(), "user_email", email);
         }
     }
 }
