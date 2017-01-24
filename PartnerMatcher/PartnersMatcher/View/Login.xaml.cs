@@ -39,18 +39,21 @@ namespace PartnersMatcher.View
             }
             else
             {
-                User user = controller.login(tb_email.Text, passwordBox.Password);
-                if (user == null)
+                try
                 {
-                    controller.showMessage("אימייל או סיסמא שגויים");
-                }
-                else
-                {
+                    User user = controller.login(tb_email.Text, passwordBox.Password);
                     DialogResult = true;
                     controller.showMessage("התחבר בהצלחה!");
                     ((MainWindow)Application.Current.MainWindow).notifyMe(user);
                 }
+                catch (Exception ex)
+                {
+                    controller.showMessage(ex.Message);
+                    return;
+                }
+
                 Close();
+               
             }
         }
     }
