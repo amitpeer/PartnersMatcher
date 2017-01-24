@@ -89,7 +89,7 @@ namespace PartnersMatcher.Model
         }
         public override string ToString()
         {
-            return FirstName + " " + LastName + ", " + City + ", " + Email;
+            return Email + " ," + FirstName + " " + LastName + " ," + City;
         }
 
     }
