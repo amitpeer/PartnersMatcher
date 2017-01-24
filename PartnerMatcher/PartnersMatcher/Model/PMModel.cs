@@ -26,11 +26,11 @@ namespace PartnersMatcher.Model
             User user = null;
             try
             {
-            user = databaseUtils.connectUser(email, pass);
+                 user = databaseUtils.connectUser(email, pass);
             }
             catch (Exception e)
             {
-                controller.showMessage("לא הצלחנו להתחבר למסד הנתונים.\n" + e.Message);
+                throw e;
             }
             _correntLoggedInUser = user;
             return user;
@@ -93,12 +93,29 @@ namespace PartnersMatcher.Model
 
         public void createNewGroup(string category, string location, string title, string adContent, string groupContent)
         {
-            databaseUtils.createNewGrop(category, location, title, adContent, groupContent, _correntLoggedInUser.Email);
+            try
+            {
+                databaseUtils.createNewGrop(category, location, title, adContent, groupContent, _correntLoggedInUser.Email);
+                controller.showMessage("יצרת קבוצה חדשה בהצלחה!");
+            }
+            catch (Exception e)
+            {
+                controller.showMessage(e.Message);
+            }
         }
 
         public Group getGroupById(int id)
         {
-            return databaseUtils.getGroupByID(id);
+            Group group=null;
+            try
+            {
+                 group= databaseUtils.getGroupByID(id);
+            }
+            catch (Exception)
+            {
+                controller.showMessage("בעייה בהתחברות, נסה שוב");
+            }
+            return group;
         }
 
         public User getUserByEmail(string email)

@@ -15,7 +15,7 @@ namespace PartnersMatcher.Model
         private static readonly string pathToDb = localPath + @"\Data\PartnerMatcherDB.accdb";
         private OleDbConnection _dbConn;
         private readonly string connectionError;
-        private readonly string dataBaseError ="ההרשמה נכשלה. פרטים:" + "\n" + "To fix the problem, try to download the Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255\nPlease read the readme file for more information.";
+        private readonly string dataBaseError ="פעולה נכשלה:" + "\n" + "To fix the problem, try to download the Microsoft Access Database Engine 2010 Redistributable from the link: \nhttps://www.microsoft.com/en-us/download/details.aspx?id=13255\nPlease read the readme file for more information.";
 
 
         public DatabaseUtils()
@@ -81,7 +81,7 @@ namespace PartnersMatcher.Model
             if (user == null)
                 return null;
             if (user.Pssword == "" || user.Pssword != pass)
-                 throw new Exception("Wrong Email or Password, please try again");
+                 throw new Exception("פרטי התחברות שגויים");
             
             return user;
         }
@@ -91,7 +91,7 @@ namespace PartnersMatcher.Model
             User user = null;
             string query = "SELECT* FROM Users WHERE User_Email = '" + email + "'";
 
-            string error = "", qEmail = "", qFname = "", qLname = "", qCity = "", qPass = "";
+            string qEmail = "", qFname = "", qLname = "", qCity = "", qPass = "";
             int qSmoke = 0, qReligious = 0, qAnimalLover = 0;
             try
             {
@@ -116,7 +116,7 @@ namespace PartnersMatcher.Model
             }
             catch (Exception)
             {
-                throw new Exception(error);
+                throw new Exception(dataBaseError);
             }
             finally
             {
@@ -239,16 +239,17 @@ namespace PartnersMatcher.Model
             string adID = "";
             string adCategory = "";
             string adLocation = "";
-            string adTitle = "";
+            string adTitle = ""; string content = "";
             while (reader.Read())
             {
                 adID = reader.GetValue(0).ToString();
                 adCategory = reader.GetString(1);
                 adLocation = reader.GetString(2);
-                adTitle = reader.GetString(3); 
+                adTitle = reader.GetString(3);
+                content= reader.GetString(4);
 
             }
-            Ad ad = new Ad(int.Parse(adID), adCategory, adLocation, adTitle);
+            Ad ad = new Ad(int.Parse(adID), adCategory, adLocation, adTitle,content);
             return ad;
         }
     
@@ -304,10 +305,11 @@ namespace PartnersMatcher.Model
                     string qCategory = reader.GetString(1);
                     string qLocation = reader.GetString(2);
                     string title = reader.GetString(3);
+                    string content = reader.GetString(4);
 
                     if (!isUserFreindInAdGroup(email, qNumber))
                     {
-                        Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
+                        Ad newAdd = new Ad(qNumber, qCategory, qLocation, title,content);
                         listOfAds.Add(newAdd);
                     }
                 }
@@ -367,13 +369,20 @@ namespace PartnersMatcher.Model
 
         public void createNewGrop(string category, string location, string title, string adContent,string groupContent, string userMail)
         {
-            string addAdQuery = "insert into Ads_table (Ad_category,Ad_location,Ad_title) values('" + category + "','" + location + "','" + title + "')";
-            voidQueryToDB(addAdQuery);
-            OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from Ads_table", _dbConn);
-            int adInseetedID = getLastinSertedId("Ads_table","Ad_id");
-            string addGroupQuery = "insert into Groups (group_adID,group_title,group_content,group_adminID) values('" + adInseetedID + "','" + title + "','" + groupContent + "','" + userMail + "')";
-            voidQueryToDB(addGroupQuery);
-            addUserToGroup(userMail, getLastinSertedId("Groups","group_id"));
+            try
+            {
+                string addAdQuery = "insert into Ads_table (Ad_category,Ad_location,Ad_title,Ad_content) values('" + category + "','" + location + "','" + title + "','" + adContent + "')";
+                voidQueryToDB(addAdQuery);
+                OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from Ads_table", _dbConn);
+                int adInseetedID = getLastinSertedId("Ads_table","Ad_id");
+                string addGroupQuery = "insert into Groups (group_adID,group_title,group_content,group_adminID) values('" + adInseetedID + "','" + title + "','" + groupContent + "','" + userMail + "')";
+                voidQueryToDB(addGroupQuery);
+                addUserToGroup(userMail, getLastinSertedId("Groups","group_id"));
+            }
+            catch (Exception)
+            {
+                throw new Exception("הוספת ההודעה נכשלה.\n אנא וודא כי השדות שלך לא מכילים סימני פסוק מלבד סימנים הבאים: (),.:;[]");
+            }
         }
 
         private int getLastinSertedId(string tableName, string fieldName)
@@ -423,6 +432,7 @@ namespace PartnersMatcher.Model
             string query = "DELETE FROM " + tableName + " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'" +" AND ["+  fieldName2 + "] = '" + WhereFieldEqualTo2 + "'";
             voidQueryToDB(query);
         }
+
         internal void declineUserToGroup(string email, int groupId)
         {
             deleteRecordFromTable("Requests", "group_id", groupId.ToString(), "user_email", email);

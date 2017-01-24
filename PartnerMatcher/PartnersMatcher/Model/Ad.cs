@@ -24,13 +24,13 @@ namespace PartnersMatcher.Model
 
         public Ad() { }
 
-        public Ad(int serialNumber, string category, string location, string title)
+        public Ad(int serialNumber, string category, string location, string title,string content)
         {
             _serialNumber = serialNumber;
             _category = category;
-            _location = location;
-
+            _location = location;            
             _title = title;
+            _content = content;
         }
 
         public string Category
