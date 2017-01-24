@@ -77,25 +77,34 @@ namespace PartnersMatcher.View
             }
         }
 
-        private void listView_requests_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string selectedUserEmail = group.Requests[listView_requests.SelectedIndex].User;
-
-            MessageBoxResult result = MessageBox.Show("?האם ברצונך לאשר משתמש זה לקבוצה", "אישור", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-            {
-                controller.acceptUserToGroup(selectedUserEmail, group.Id);
-            }
-            else
-            {
-                controller.declineUserToGroup(selectedUserEmail, group.Id);
-            }
-
-        }
-
         private void button_close_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void listView_requests_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+                string selectedUserEmail = group.Requests[listView_requests.SelectedIndex].User;
+
+                MessageBoxResult result = MessageBox.Show("?האם ברצונך לאשר משתמש זה לקבוצה", "אישור", MessageBoxButton.YesNoCancel);
+                if (result == MessageBoxResult.Cancel)
+                {
+                    return;
+                }
+                else if (result == MessageBoxResult.Yes)
+                {
+                    controller.acceptUserToGroup(selectedUserEmail, group.Id);
+
+                    //add user to members ListView
+                    listView_members.Items.Add(controller.getUserByEmail(selectedUserEmail));
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    controller.declineUserToGroup(selectedUserEmail, group.Id);
+                }
+
+                //remove user from requests ListView
+                listView_requests.Items.RemoveAt(listView_requests.SelectedIndex);
         }
     }
 }

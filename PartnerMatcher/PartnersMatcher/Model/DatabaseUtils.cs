@@ -125,6 +125,39 @@ namespace PartnersMatcher.Model
             return user;
         }
 
+        internal void addRequestToGroup(string email, int groupId)
+        {
+            string checkRecExistQuery = "SELECT group_id from Requests WHERE user_id='" + email + "' AND group_id='" + groupId + "'";
+            try
+            {
+                _dbConn.Open();
+                OleDbCommand cmd = new OleDbCommand(checkRecExistQuery, _dbConn);
+                OleDbDataReader reader = cmd.ExecuteReader();
+                string answer = "";
+                while (reader.Read())
+                {
+                    answer = reader.GetValue(0).ToString();
+                }
+                if (answer != "")  //so the request is already made
+                    throw new Exception("כבר ביקשת להצטרף לקבוצה זו,נא המתן לאישור");
+                else
+                {
+                    string insertRequest = "insert into Requests (group_id,user_id) values('" + groupId + "','" + email + "')";
+                    voidQueryToDB(insertRequest);
+
+                }
+            }
+            catch
+            {
+                throw new Exception("בעייה בהתחברות למסד הנתונים");
+            }
+            finally
+            {
+                //_dbConn.Close();
+            }
+        }
+            
+
         public Group getGroupByID(int id)
         {
             Group group;
