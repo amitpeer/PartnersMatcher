@@ -37,8 +37,8 @@ namespace PartnersMatcher.View
             }
             else
             {                
-                controller.signUp(tb_email.Text, tb_firstName.Text, tb_lastName.Text, tb_city.Text, passwordBox.Password);
-                Close();
+                if(controller.signUp(tb_email.Text, tb_firstName.Text, tb_lastName.Text, tb_city.Text, passwordBox.Password))
+                    Close();
             }
         }
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)

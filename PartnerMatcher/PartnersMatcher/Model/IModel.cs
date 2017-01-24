@@ -11,13 +11,13 @@ namespace PartnersMatcher.Model
     {
         void setController(IController controller);
 
-        void signUp(string email, string firstName, string lastName, string city, string password);
+        bool signUp(string email, string firstName, string lastName, string city, string password);
 
         User login(string email, string pass);
 
         List<Ad> getAdsByLocationAndCategory(string location, string category);
 
-        void createNewGroup(string category, string location, string title, string content);
+        void createNewGroup(string category, string location, string title, string adContent,string groupContent);
 
 
     }

@@ -13,6 +13,8 @@ namespace PartnersMatcher.Model
     {
         private IController controller;
         private DatabaseUtils databaseUtils;
+        private User _correntLoggedInUser;
+
         public PMModel()
         {
             databaseUtils = new DatabaseUtils();
@@ -30,6 +32,7 @@ namespace PartnersMatcher.Model
             {
                 controller.showMessage("לא הצלחנו להתחבר למסד הנתונים.\n" + e.Message);
             }
+            _correntLoggedInUser = user;
             return user;
         }
 
@@ -38,21 +41,25 @@ namespace PartnersMatcher.Model
             this.controller = controller;
         }
 
-        public void signUp(string email, string firstName, string lastName, string city, string password)
+        public bool signUp(string email, string firstName, string lastName, string city, string password)
         {
+            bool isSignUp = false;
             try
             {
                 User user = new User(email, firstName, lastName, city, password);
                 databaseUtils.addUser(user);
                 sentValidationEmail(user);
                 controller.showMessage("ההרשמה עברה בהצלחה והודעה לאימייל נשלחה.");
+                isSignUp = true;
 
             }
             catch (Exception e)
             {
                 controller.showMessage(e.Message);
             }
+            return isSignUp;
         }
+
         private void sentValidationEmail(User user)
         {
             MailMessage mail = new MailMessage("partnersystemconf@gmail.com", user.Email);
@@ -84,9 +91,9 @@ namespace PartnersMatcher.Model
             return adList;
         }
 
-        public void createNewGroup(string category, string location, string title, string content)
+        public void createNewGroup(string category, string location, string title, string adContent, string groupContent)
         {
-            throw new NotImplementedException();
+            databaseUtils.createNewGrop(category, location, title, adContent, groupContent, _correntLoggedInUser.Email);
         }
     }
 }

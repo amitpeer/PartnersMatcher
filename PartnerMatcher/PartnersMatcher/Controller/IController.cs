@@ -10,7 +10,7 @@ namespace PartnersMatcher.Controller
 {
     public interface IController
     {
-        void signUp(string email, string firstName, string lastName, string city, string password);
+        bool signUp(string email, string firstName, string lastName, string city, string password);
 
         void showMessage(string text);
 
