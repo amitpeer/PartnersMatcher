@@ -198,7 +198,7 @@ namespace PartnersMatcher.View
             createGroup.ShowDialog();
         }
 
-        private void listView_myGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listView_myGroups_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (isLoggedIn == true)
             {
