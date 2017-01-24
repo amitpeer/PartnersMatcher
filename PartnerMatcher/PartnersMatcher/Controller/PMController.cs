@@ -71,5 +71,10 @@ namespace PartnersMatcher.Controller
         {
             model.addRequestForGroup(adId);
         }
+
+        public bool isUserInGroup(int adId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

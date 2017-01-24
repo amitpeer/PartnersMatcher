@@ -10,6 +10,11 @@ namespace PartnersMatcher.Model
     {
 
         private int _serialNumber;
+        private string _category;
+        private string _location;
+        private string _admin;
+        private string _title;
+        private string _content;
 
         public int SerialNumber
         {
@@ -17,32 +22,7 @@ namespace PartnersMatcher.Model
             set { _serialNumber = value; }
         }
 
-
-        private string _category;
-
-        public string Category
-        {
-            get { return _category; }
-            set { _category = value; }
-        }
-
-
-        private string _location;
-
-        public string Location
-        {
-            get { return _location; }
-            set { _location = value; }
-        }
-
-
-        private string _admin;
-
-        public string Admin
-        {
-            get { return _admin; }
-            set { _admin = value; }
-        }
+        public Ad() { }
 
         public Ad(int serialNumber, string category, string location, string title)
         {
@@ -53,9 +33,27 @@ namespace PartnersMatcher.Model
             _title = title;
         }
 
-        private string _title;
+        public string Category
+        {
+            get { return _category; }
+            set { _category = value; }
+        }
+
+        public string Location
+        {
+            get { return _location; }
+            set { _location = value; }
+        }
+
+        public string Admin
+        {
+            get { return _admin; }
+            set { _admin = value; }
+        }
 
         public string Title { get { return _title; } set { _title = value; } }
+
+        public string Content { get { return _content; } set { _content = value; } }
 
         public override string ToString()
         {
@@ -63,6 +61,5 @@ namespace PartnersMatcher.Model
             return tostring;
         }
         
-        public Ad() { }
     }
 }

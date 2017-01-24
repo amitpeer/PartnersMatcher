@@ -20,7 +20,7 @@ namespace PartnersMatcher.Model
 
         public DatabaseUtils()
         {
-            _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDb + "; Persist Security Info=False");  // defining the source of the data base, meaning connection
+            _dbConn = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathToDb + "; Persist Security Info=False");  // defining the source of the data base, meaning connection           
             connectionError = "Connection error! try again later";
         }
 
@@ -125,29 +125,40 @@ namespace PartnersMatcher.Model
             return user;
         }
 
-        
-
-        internal void addRequestToGroup(int adId,string email)
+        internal void addRequestToGroup(int adId, string email)
         {
-            string checkRecExistQuery = "SELECT group_id from Groups WHERE group_adID='" + adId + "'";
+            string getGroupID = "SELECT group_id from Groups WHERE group_adID='" + adId + "'";
+            string groupID = "";
+            isQueryEmpty(getGroupID, out groupID);
+            string checkRecExistQuery = "SELECT group_id from Requests WHERE user_email='" + email + "' AND group_id='" + groupID + "'";
+
+            string answer = "";
+            if(!(isQueryEmpty(checkRecExistQuery, out answer)))
+                 throw new Exception("כבר ביקשת להצטרף לקבוצה זו,נא המתן לאישור");
+            else
+            {
+                string insertRequest = "insert into Requests (group_id,user_id) values('" + answer + "','" + email + "')";
+                voidQueryToDB(insertRequest);
+
+            }
+        }
+
+        //check if query is empty, if not get the first answer from DB to answer
+        public bool isQueryEmpty(string query,out string answer)
+        {
+            answer = "";
             try
             {
                 _dbConn.Open();
-                OleDbCommand cmd = new OleDbCommand(checkRecExistQuery, _dbConn);
+                OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 OleDbDataReader reader = cmd.ExecuteReader();
-                string answer = "";
                 while (reader.Read())
                 {
                     answer = reader.GetValue(0).ToString();
                 }
-                if (answer != "")  //so the request is already made
-                    throw new Exception("כבר ביקשת להצטרף לקבוצה זו,נא המתן לאישור");
-                else
-                {
-                    string insertRequest = "insert into Requests (group_id,user_id) values('" + answer + "','" + email + "')";
-                    voidQueryToDB(insertRequest);
-
-                }
+                if (answer != "")  //so the recored is exist
+                    return false;
+                
             }
             catch
             {
@@ -157,9 +168,9 @@ namespace PartnersMatcher.Model
             {
                 _dbConn.Close();
             }
+            return false;
         }
             
-
         public Group getGroupByID(int id)
         {
             Group group;
@@ -268,7 +279,7 @@ namespace PartnersMatcher.Model
             return userGroups;
         }
 
-        public List<Ad> getAdsByLocationAndCategory(string location, string category)
+        public List<Ad> getAdsByLocationAndCategory(string location, string category,string email)
         {
             List<Ad> listOfAds = null;
 
@@ -287,10 +298,12 @@ namespace PartnersMatcher.Model
                     string qCategory = reader.GetString(1);
                     string qLocation = reader.GetString(2);
                     string title = reader.GetString(3);
-                   
 
-                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
-                    listOfAds.Add(newAdd);
+                    if (!isUserFreindInAdGroup(email, qNumber))
+                    {
+                        Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
+                        listOfAds.Add(newAdd);
+                    }
                 }
             }
             catch (Exception)
@@ -303,6 +316,20 @@ namespace PartnersMatcher.Model
             }
 
             return listOfAds;
+        }
+
+        private bool isUserFreindInAdGroup(string email, int adId)
+        {
+            string getGroupID = "SELECT group_id from Groups WHERE group_adID='" + adId + "'";
+            string groupID = "";
+            isQueryEmpty(getGroupID, out groupID);
+
+            string checkRecExistQuery = "SELECT group_id from Groups_andUsers WHERE user_email='" + email + "' AND group_id='" + groupID + "'";
+
+            string answer = "";
+            if (isQueryEmpty(checkRecExistQuery, out answer))
+                return false;
+            return true;
         }
 
         private void voidQueryToDB(string query)
@@ -376,7 +403,7 @@ namespace PartnersMatcher.Model
         {
                 string query = "insert into Groups_and_users (group_id,user_email) values('" + groupId + "','" + email + "')";
                 voidQueryToDB(query);
-                deleteRecordFromTable("Requests","group_id","groupId","user_email", "email");
+                deleteRecordFromTable("Requests","group_id",groupId.ToString(),"user_email", email);
         }
 
         private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo)
@@ -391,7 +418,7 @@ namespace PartnersMatcher.Model
         }
         internal void declineUserToGroup(string email, int groupId)
         {
-            deleteRecordFromTable("Requests", "group_id", "groupId", "user_email", "email");
+            deleteRecordFromTable("Requests", "group_id", groupId.ToString(), "user_email", email);
         }
     }
 }

@@ -82,7 +82,7 @@ namespace PartnersMatcher.Model
             List<Ad> adList = null;
             try
             {
-                adList = databaseUtils.getAdsByLocationAndCategory(location, category);
+                adList = databaseUtils.getAdsByLocationAndCategory(location, category,_correntLoggedInUser.Email);
             }
             catch (Exception e)
             {

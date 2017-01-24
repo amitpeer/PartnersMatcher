@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using PartnersMatcher.Model;
+using PartnersMatcher.Controller;
 
 namespace PartnersMatcher.View
 {
@@ -21,6 +22,7 @@ namespace PartnersMatcher.View
     public partial class AdResult : Window
     {
         private List<Ad> adList;
+        private IController controller;
 
         public List<Ad> AdList
         {
@@ -28,13 +30,14 @@ namespace PartnersMatcher.View
             set { adList = value; }
         }
 
-        public AdResult(User user, List<Ad> adList)
+        public AdResult(IController controller, List<Ad> adList)
         {
             InitializeComponent();
             AdList = adList;
+            this.controller = controller;
             foreach (Ad ad in adList)
             {
-                listview.Items.Add(new AdSummary(user, ad));
+                 listview.Items.Add(new AdSummary(ad, controller));
             }
         }
         private void button_Click(object sender, RoutedEventArgs e)
