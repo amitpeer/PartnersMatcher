@@ -122,5 +122,10 @@ namespace PartnersMatcher.Model
                 controller.showMessage(e.Message);
             }
         }
+
+        public void declineUserToGroup(string email, int groupId)
+        {
+            databaseUtils.declineUserToGroup(email, groupId);
+        }
     }
 }

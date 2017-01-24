@@ -64,7 +64,7 @@ namespace PartnersMatcher.Controller
 
         public void declineUserToGroup(string email, int groupId)
         {
-            throw new NotImplementedException();
+            model.declineUserToGroup(email, groupId);
         }
 
         public void addRequest(int adId)
