@@ -302,13 +302,13 @@ namespace PartnersMatcher.Model
             string addAdQuery = "insert into Ads_table (Ad_category,Ad_location,Ad_title) values('" + category + "','" + location + "','" + title + "')";
             voidQueryToDB(addAdQuery);
             OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from Ads_table", _dbConn);
-            int adInseetedID = getLastinSertedId("Ads_table");
+            int adInseetedID = getLastinSertedId("Ads_table","Ad_id");
             string addGroupQuery = "insert into Groups (group_adID,group_title,group_content,group_adminID) values('" + adInseetedID + "','" + title + "','" + groupContent + "','" + userMail + "')";
-            //addUserToGroup(userMail,)
             voidQueryToDB(addGroupQuery);
+            addUserToGroup(userMail, getLastinSertedId("Groups","group_id"));
         }
 
-        private int getLastinSertedId(string tableName)
+        private int getLastinSertedId(string tableName, string fieldName)
         {
             Int32 adInseetedID = 0;
             try
@@ -322,7 +322,7 @@ namespace PartnersMatcher.Model
             }
             try
             {
-                OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from "+tableName, _dbConn);
+                OleDbCommand maxCommand = new OleDbCommand("SELECT max("+fieldName+") from " + tableName, _dbConn);
                 adInseetedID = (Int32)maxCommand.ExecuteScalar();
 
             }
@@ -339,29 +339,9 @@ namespace PartnersMatcher.Model
 
         public void addUserToGroup(string email, int groupId)
         {
-            try
-            {
-                _dbConn.Open();
-
-            }
-            catch (Exception e)
-            {
-                throw new Exception(dataBaseError);
-            }
-            try
-            {
                 string query = "insert into Groups_and_users (group_id,user_email) values('" + groupId + "','" + email + "')";
                 voidQueryToDB(query);
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
-            }
-            finally
-            {
-                _dbConn.Close();
-            }
         }
     }
 }
