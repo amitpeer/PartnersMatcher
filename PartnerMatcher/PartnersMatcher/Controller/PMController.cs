@@ -48,5 +48,10 @@ namespace PartnersMatcher.Controller
         {
             throw new NotImplementedException();
         }
+
+        public User getUserByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

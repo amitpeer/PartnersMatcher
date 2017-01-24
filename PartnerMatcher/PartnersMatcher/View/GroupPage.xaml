@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher.View"
         mc:Ignorable="d"
-        Title="GroupPage" Height="300" Width="300">
+        Title="GroupPage" Height="352" Width="390">
     <Grid>
-        
+        <Label x:Name="label_groupPage" Content="דף קבוצה" HorizontalContentAlignment="right" HorizontalAlignment="Left" Height="26" Margin="284,21,0,0" VerticalAlignment="Top" Width="66"/>
+        <Label x:Name="label_groupTitle" Content="" HorizontalAlignment="Left" Height="26" Margin="148,21,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label x:Name="label_members" Content="חברי הקבוצה" HorizontalContentAlignment="right" HorizontalAlignment="Left" Height="26" Margin="263,64,0,0" VerticalAlignment="Top" Width="87"/>
+        <ListView x:Name="listView_members" HorizontalAlignment="Left" Height="181" Margin="246,95,0,0" VerticalAlignment="Top" Width="104">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

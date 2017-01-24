@@ -201,7 +201,7 @@ namespace PartnersMatcher.View
         private void listView_myGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Model.Group selectedGroup = controller.getGroupById(user.Groups[listView_myGroups.SelectedIndex]);
-            GroupPage groupPage = new GroupPage(controller, selectedGroup);
+            GroupPage groupPage = new GroupPage(controller, selectedGroup, user);
             groupPage.ShowDialog();
         }
     }

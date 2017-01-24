@@ -8,5 +8,8 @@ namespace PartnersMatcher.Model
 {
     public class Admin : User
     {
+        public Admin(User user) : base(user)
+        {
+        }
     }
 }

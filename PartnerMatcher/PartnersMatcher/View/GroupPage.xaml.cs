@@ -21,15 +21,35 @@ namespace PartnersMatcher.View
     /// </summary>
     public partial class GroupPage : Window
     {
-        IController controller;
-        Group group;
+        private IController controller;
+        private Group group;
+        private Admin admin;
+        private bool isAdmin;
 
-        public GroupPage(IController controller, Group group)
+        public GroupPage(IController controller, Group group, User user)
         {
+            InitializeComponent();
             Background = ((MainWindow)Application.Current.MainWindow).Background;
             this.controller = controller;
-            this.group = group;
-            InitializeComponent();
+            this.group = group;           
+
+            // check if the user is the admin of the group
+            if(group.Admin == user.Email)
+            {
+                isAdmin = true;
+                admin = new Admin(user);
+            }
+            else
+            {
+                isAdmin = false;
+            }
+
+            addUsersToMemeberList();
+        }
+
+        private void addUsersToMemeberList()
+        {
+            
         }
     }
 }
