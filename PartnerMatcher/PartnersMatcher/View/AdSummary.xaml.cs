@@ -28,7 +28,7 @@ namespace PartnersMatcher.View
             this.ad = ad;
             category1.Text = ad.Category;
             adid1.Text = ad.SerialNumber.ToString();
-            Location1.Text = ad.Lcation;
+            Location1.Text = ad.Location;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

@@ -42,7 +42,7 @@ namespace PartnersMatcher.Model
 
             int number = ad.SerialNumber;
             string category = ad.Category;
-            string location = ad.Lcation;
+            string location = ad.Location;
             string admin = ad.Admin;
 
             string query = "insert into Ad_table (Ad_numb,Ad_category,Ad_location,Ad_admin) values('" + number + "','" + category + "','" + location + "','" + admin + "')";
@@ -146,9 +146,9 @@ namespace PartnersMatcher.Model
                     string qCategory = reader.GetString(1);
                     string qLocation = reader.GetString(2);
                     string qAdmin = reader.GetString(3);
+                    string title = "";
 
-
-                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, qAdmin);
+                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, qAdmin, title);
                     listOfAds.Add(newAdd);
                 }
 

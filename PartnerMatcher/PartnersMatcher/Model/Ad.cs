@@ -29,7 +29,7 @@ namespace PartnersMatcher.Model
 
         private string _location;
 
-        public string Lcation
+        public string Location
         {
             get { return _location; }
             set { _location = value; }
@@ -44,19 +44,22 @@ namespace PartnersMatcher.Model
             set { _admin = value; }
         }
 
-
-
-        public Ad(int serialNumber, string category, string location, string admin)
+        public Ad(int serialNumber, string category, string location, string admin, string title)
         {
             _serialNumber = serialNumber;
             _category = category;
             _location = location;
             _admin = admin;
+            _title = title;
         }
+
+        private string _title;
+
+        public string Title { get { return _title; } set { _title = value; } }
 
         public override string ToString()
         {
-            string  tostring=_serialNumber.ToString() +" "+ _category.ToString()+" " + _admin.ToString();
+            string tostring = _serialNumber.ToString() + " " + _category.ToString() + " " + _admin.ToString() + " " + _title;
             return tostring;
         }
         
