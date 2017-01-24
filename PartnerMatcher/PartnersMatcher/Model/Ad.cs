@@ -44,12 +44,12 @@ namespace PartnersMatcher.Model
             set { _admin = value; }
         }
 
-        public Ad(int serialNumber, string category, string location, string admin, string title)
+        public Ad(int serialNumber, string category, string location, string title)
         {
             _serialNumber = serialNumber;
             _category = category;
             _location = location;
-            _admin = admin;
+
             _title = title;
         }
 

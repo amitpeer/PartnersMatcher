@@ -97,6 +97,7 @@ namespace PartnersMatcher.Model
                 else
                 {
                     user = new User(email, qFname, qLname, qPass, qCity);
+                    user.Groups = getUserGroups(user.Email);
                     error = connectionError;
                 }
             }
@@ -110,7 +111,42 @@ namespace PartnersMatcher.Model
             }
             return user;
         }
-        
+
+        public Group getGroupByID(int id)
+        {
+            Group group = new Group();
+            string query = "SELECT* from Groups WHERE group_id = '" + id + "'";
+            OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            string str = Convert.ToString(cmd.ExecuteScalar());
+            OleDbDataReader reader = cmd.ExecuteReader();
+            string groupID = ""; string groupAdID = ""; string groupTitle = "";
+            string groupContent = ""; string groupAdmin = "";
+            while (reader.Read())
+            {
+                groupID = reader.GetValue(0).ToString();
+                groupAdID = reader.GetString(1);
+                groupTitle = reader.GetString(2);
+                groupContent = reader.GetString(3);
+                groupAdmin = reader.GetString(4);
+            }
+            return group;
+        }
+
+        private List<int> getUserGroups(string email)
+        {
+            List<int> userGroups = new List<int>();
+            string query = "SELECT group_id from Groups_and_users WHERE user_email='" + email + "'";
+            OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            string groupID = "";
+            while (reader.Read())
+            {
+                groupID = reader.GetValue(0).ToString();
+                userGroups.Add(int.Parse(groupID));
+            }
+            return userGroups;
+        }
+
         public List<Ad> getAdsByLocationAndCategory(string location, string category)
         {
             List<Ad> listOfAds = null;
@@ -129,10 +165,10 @@ namespace PartnersMatcher.Model
                     int.TryParse(reader.GetValue(0).ToString(), out qNumber);
                     string qCategory = reader.GetString(1);
                     string qLocation = reader.GetString(2);
-                    string qAdmin = reader.GetString(3);
-                    string title = "";
+                    string title = reader.GetString(3);
+                   
 
-                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, qAdmin, title);
+                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
                     listOfAds.Add(newAdd);
                 }
 
@@ -189,7 +225,6 @@ namespace PartnersMatcher.Model
 
         private int getLastinSertedId(string tableName)
         {
-
             Int32 adInseetedID = 0;
             try
             {
@@ -202,7 +237,6 @@ namespace PartnersMatcher.Model
             }
             try
             {
-             
                 OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from "+tableName, _dbConn);
                 adInseetedID = (Int32)maxCommand.ExecuteScalar();
 
@@ -210,13 +244,11 @@ namespace PartnersMatcher.Model
             catch (Exception ex)
             {
                 throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
-
             }
             finally
             {
                 _dbConn.Close();
             }
-
             return adInseetedID;
         }
 
