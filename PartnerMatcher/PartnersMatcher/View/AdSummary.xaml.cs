@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PartnersMatcher.Model;
+using PartnersMatcher.Controller;
 
 namespace PartnersMatcher.View
 {
@@ -22,13 +23,13 @@ namespace PartnersMatcher.View
     public partial class AdSummary : UserControl
     {
         Ad ad;
-        User user;
+        IController controller;
 
-        public AdSummary(User user, Ad ad)
+        public AdSummary(Ad ad, IController controller)
         {
             InitializeComponent();
             this.ad = ad;
-            this.user = user;
+            this.controller = controller;
             category1.Text = ad.Category;
             adid1.Text = ad.SerialNumber.ToString();
             Location1.Text = ad.Location;
@@ -36,7 +37,7 @@ namespace PartnersMatcher.View
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            RequestPage requestPage = new RequestPage(user, ad);
+            RequestPage requestPage = new RequestPage(ad, controller);
         }
     }
 }
