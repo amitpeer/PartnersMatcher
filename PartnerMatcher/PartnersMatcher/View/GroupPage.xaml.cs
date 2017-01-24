@@ -70,5 +70,19 @@ namespace PartnersMatcher.View
                 listView_members.Items.Add(controller.getUserByEmail(email).ToString());
             }
         }
+
+        private void listView_requests_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("?האם ברצונך לאשר משתמש זה לקבוצה", "אישור", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                
+            }
+            else
+            {
+
+            }
+
+        }
     }
 }

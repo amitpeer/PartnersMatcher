@@ -23,5 +23,9 @@ namespace PartnersMatcher.Controller
         Group getGroupById(int id);
 
         User getUserByEmail(string email);
+
+        void acceptUserToGroup(string email, int groupId);
+
+        void declineUserToGroup(string email, int groupId);
     }
 }
