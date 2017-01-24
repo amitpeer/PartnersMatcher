@@ -66,5 +66,10 @@ namespace PartnersMatcher.Controller
         {
             throw new NotImplementedException();
         }
+
+        public void addRequest(int adId)
+        {
+            model.addRequestForGroup(adId);
+        }
     }
 }

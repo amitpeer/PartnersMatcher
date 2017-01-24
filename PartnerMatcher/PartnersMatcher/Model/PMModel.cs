@@ -110,5 +110,17 @@ namespace PartnersMatcher.Model
         {
             databaseUtils.addUserToGroup(email, groupId);
         }
+
+        public void addRequestForGroup(int adId)
+        {
+            try
+            {
+                databaseUtils.addRequestToGroup(adId,_correntLoggedInUser.Email);
+            }
+            catch (Exception e)
+            {
+                controller.showMessage(e.Message);
+            }
+        }
     }
 }
