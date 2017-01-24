@@ -26,5 +26,6 @@ namespace PartnersMatcher.Model
         void acceptUserToGroup(string email, int groupId);
 
         void addRequestForGroup(int adIdd);
+        void declineUserToGroup(string email, int groupId);
     }
 }
