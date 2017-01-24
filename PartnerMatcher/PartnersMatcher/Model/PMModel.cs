@@ -84,5 +84,9 @@ namespace PartnersMatcher.Model
             return adList;
         }
 
+        public void createNewGroup(string category, string location, string title, string content)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

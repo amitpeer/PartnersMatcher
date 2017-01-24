@@ -1,0 +1,23 @@
+﻿<Window x:Class="PartnersMatcher.View.CreateGroup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartnersMatcher.View"
+        mc:Ignorable="d"
+        Title="CreateGroup" Height="336.234" Width="585.999">
+    <Grid>
+        <Label x:Name="label_addNewGroup" Content="הוספת קבוצה חדשה" HorizontalAlignment="Right" Height="28" Margin="0,10,227,0" VerticalAlignment="Top" Width="130" HorizontalContentAlignment="Right"/>
+        <Label x:Name="label_title" Content="שם הקבוצה" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Height="24" Margin="0,60,10,0" VerticalAlignment="Top" Width="84"/>
+        <Label x:Name="label_content" Content="תוכן המודעה" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Height="24" Margin="0,145,10,0" VerticalAlignment="Top" Width="84"/>
+        <Label x:Name="label_category" Content="קטגוריה" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Height="24" Margin="0,60,303,0" VerticalAlignment="Top" Width="84"/>
+        <Label x:Name="label_location" Content="מיקום" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Height="24" Margin="0,107,303,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox x:Name="textBox_title" HorizontalAlignment="Left" Height="24" Margin="303,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="176" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="comboBox_category"  HorizontalAlignment="Left" Margin="50,62,0,0" VerticalAlignment="Top" Width="120" Loaded="catagory_loaded" SelectionChanged="tb_catagory_SelectionChanged" HorizontalContentAlignment="Right"/>
+        <ComboBox x:Name="comboBox_location"  HorizontalAlignment="Left" Margin="50,103,0,0" VerticalAlignment="Top" Width="120" Loaded="location_loaded" SelectionChanged="tb_location_SelectionChanged" HorizontalContentAlignment="Right"/>
+        <TextBox x:Name="textBox_adContent" HorizontalAlignment="Left" Height="101" Margin="303,145,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="176"/>
+        <Label x:Name="label_groupContent" Content="תיאור הקבוצה" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Height="24" Margin="0,145,287,0" VerticalAlignment="Top" Width="84"/>
+        <TextBox x:Name="textBox_groupContent" HorizontalAlignment="Left" Height="101" Margin="17,145,0,0" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Right" VerticalAlignment="Top" Width="176"/>
+        <Button x:Name="button_createGroup" Content="שלח" HorizontalAlignment="Left" Height="24" Margin="236,272,0,0" VerticalAlignment="Top" Width="96" HorizontalContentAlignment="Center" Click="button_createGroup_Click"/>
+    </Grid>
+</Window>
