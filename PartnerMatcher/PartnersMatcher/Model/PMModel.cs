@@ -100,5 +100,10 @@ namespace PartnersMatcher.Model
         {
             return databaseUtils.getGroupByID(id);
         }
+
+        public User getUserByEmail(string email)
+        {
+            return databaseUtils.getUserByEmail(email);
+        }
     }
 }
