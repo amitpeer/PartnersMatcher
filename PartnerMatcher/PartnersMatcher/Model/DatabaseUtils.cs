@@ -374,7 +374,7 @@ namespace PartnersMatcher.Model
         {
                 string query = "insert into Groups_and_users (group_id,user_email) values('" + groupId + "','" + email + "')";
                 voidQueryToDB(query);
-                deleteRecordFromTable("Requests","group_id","1","user_email","1");
+                deleteRecordFromTable("Requests","group_id","groupId","user_email", "email");
         }
 
         private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo)
@@ -382,9 +382,9 @@ namespace PartnersMatcher.Model
             string query = "DELETE FROM "+ tableName+ " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'";
             voidQueryToDB(query);
         }
-        private void deleteRecordFromTable(string tableName, string fieldName, string fieldName2, string WhereFieldEqualTo, string WhereFieldEqualTo2)
+        private void deleteRecordFromTable(string tableName, string fieldName, string WhereFieldEqualTo, string fieldName2, string WhereFieldEqualTo2)
         {
-            string query = "DELETE FROM " + tableName + " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'" +" And "+ "[" + fieldName + "] = '" + WhereFieldEqualTo;
+            string query = "DELETE FROM " + tableName + " WHERE [" + fieldName + "] = '" + WhereFieldEqualTo + "'" +" AND ["+  fieldName2 + "] = '" + WhereFieldEqualTo2 + "'";
             voidQueryToDB(query);
         }
     }
