@@ -106,5 +106,23 @@ namespace PartnersMatcher.View
                 //remove user from requests ListView
                 listView_requests.Items.RemoveAt(listView_requests.SelectedIndex);
         }
+
+        private void listView_members_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (listView_members.SelectedIndex == -1)
+                listView_members.SelectedIndex = 1;
+            string selectedUserEmail = group.Users[listView_members.SelectedIndex];
+            UserProfile userProfile = new UserProfile(controller.getUserByEmail(selectedUserEmail), controller);
+            userProfile.ShowDialog();
+        }
+
+        private void listView_requests_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (listView_requests.SelectedIndex == -1)
+                listView_requests.SelectedIndex = 1;
+            string selectedUserEmail = group.Requests[listView_requests.SelectedIndex].User;
+            UserProfile userProfile = new UserProfile(controller.getUserByEmail(selectedUserEmail), controller);
+            userProfile.ShowDialog();
+        }
     }
 }

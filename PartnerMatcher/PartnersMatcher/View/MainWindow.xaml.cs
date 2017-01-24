@@ -113,6 +113,7 @@ namespace PartnersMatcher.View
 
         private void addGroupsToListView()
         {
+            listView_myGroups.Items.Clear();
             foreach(int id in user.Groups)
             {
                 listView_myGroups.Items.Add(controller.getGroupById(id).Title);
@@ -196,6 +197,7 @@ namespace PartnersMatcher.View
         {
             CreateGroup createGroup = new CreateGroup(controller);
             createGroup.ShowDialog();
+            loginChanged();
         }
 
         private void listView_myGroups_MouseDoubleClick(object sender, MouseButtonEventArgs e)

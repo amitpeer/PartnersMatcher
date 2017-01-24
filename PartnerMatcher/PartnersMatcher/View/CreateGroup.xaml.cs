@@ -53,7 +53,7 @@ namespace PartnersMatcher.View
         {
             if (textBox_title.Text == "" || textBox_adContent.Text == "" || textBox_groupContent.Text == "" || comboBox_category.SelectedIndex == 0 || comboBox_location.SelectedIndex == 0)
             {
-                MessageBox.Show("אנא מאל את כל הפרטים");
+                MessageBox.Show("אנא מלא את כל הפרטים");
             }
             else
             {
