@@ -103,7 +103,7 @@ namespace PartnersMatcher.Model
                     qPass = reader.GetString(4);
 
                 }
-                user = new User(email, qFname, qLname, qPass, qCity);
+                user = new User(email, qFname, qLname, qCity, qPass);
                 user.Groups = getUserGroups(user.Email);
                     
             }
@@ -124,10 +124,10 @@ namespace PartnersMatcher.Model
             Ad groupAd=null;
             try
             {
-
+                _dbConn.Open();
                 List<Request> groupRequest = getGroupRequest(id);
-            
-                string query = "SELECT* from Groups WHERE group_id = '" + id + "'";
+                List<int> usersInGroup = getUsersForGroup(id);
+                string query = "SELECT* from Groups WHERE group_id =" + id + "";
                 OleDbCommand cmd = new OleDbCommand(query, _dbConn);
                 string str = Convert.ToString(cmd.ExecuteScalar());
                 OleDbDataReader reader = cmd.ExecuteReader();
@@ -150,14 +150,49 @@ namespace PartnersMatcher.Model
 
                 throw new Exception("תקלה בהעלאת הקבוצה");
             }
+            finally
+            {
+                _dbConn.Close();
+            }
             return group;
         }
 
-        private Ad getGroupAd(int id)
+        private List<int> getUsersForGroup(int id)
         {
-            throw new NotImplementedException();
+            List<int> userGroups = new List<int>();
+            string query = "SELECT group_id from Groups_and_users WHERE user_email='" + id + "'";
+            OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            string groupID = "";
+            while (reader.Read())
+            {
+                groupID = reader.GetValue(0).ToString();
+                userGroups.Add(int.Parse(groupID));
+            }
+            return userGroups;
         }
 
+        private Ad getGroupAd(int id)
+        { 
+            string query = "SELECT* from Ads_table WHERE Ad_id = " + id + "";
+            OleDbCommand cmd = new OleDbCommand(query, _dbConn);
+            OleDbDataReader reader = cmd.ExecuteReader();
+            string adID = "";
+            string adCategory = "";
+            string adLocation = "";
+            string adTitle = "";
+            while (reader.Read())
+            {
+                adID = reader.GetValue(0).ToString();
+                adCategory = reader.GetString(1);
+                adLocation = reader.GetString(2);
+                adTitle = reader.GetString(3); 
+
+            }
+            Ad ad = new Ad(int.Parse(adID), adCategory, adLocation, adTitle);
+            return ad;
+        }
+    
         private List<Request> getGroupRequest(int id)
         {
             List<Request> allRequest = new List<Request>();
