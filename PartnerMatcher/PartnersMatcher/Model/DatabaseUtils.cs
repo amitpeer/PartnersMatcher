@@ -118,10 +118,16 @@ namespace PartnersMatcher.Model
             string query = "SELECT* from (SELECT* from Groups_and_users WHERE user_email= '" + email + "')S,WHERE S.group_id = Groups.group.id";
             OleDbCommand cmd = new OleDbCommand(query, _dbConn);
             OleDbDataReader reader = cmd.ExecuteReader();
-            
+            string groupID = ""; string groupAdID = ""; string groupTitle = "";
+            string groupContent = "";  string groupAdmin = "";
             while (reader.Read())
             {
-                allGroupID.Add(reader[0].ToString());
+                groupID = reader.GetValue(0).ToString();
+                groupAdID = reader.GetString(1);
+                groupTitle = reader.GetString(2);
+                groupContent = reader.GetString(3);
+                groupAdmin = reader.GetString(4);
+                userGroups.Add(new Group(new Ad(), groupAdmin, groupContent, groupTitle, int.Parse(groupID));
             }
 
             return userGroups;
@@ -145,10 +151,10 @@ namespace PartnersMatcher.Model
                     int.TryParse(reader.GetValue(0).ToString(), out qNumber);
                     string qCategory = reader.GetString(1);
                     string qLocation = reader.GetString(2);
-                    string qAdmin = reader.GetString(3);
-                    string title = "";
+                    string title = reader.GetString(3);
+                   
 
-                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, qAdmin, title);
+                    Ad newAdd = new Ad(qNumber, qCategory, qLocation, title);
                     listOfAds.Add(newAdd);
                 }
 
