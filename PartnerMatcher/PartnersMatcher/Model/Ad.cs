@@ -29,7 +29,7 @@ namespace PartnersMatcher.Model
 
         private string _location;
 
-        public string Lcation
+        public string Location
         {
             get { return _location; }
             set { _location = value; }

@@ -42,7 +42,7 @@ namespace PartnersMatcher.Model
 
             int number = ad.SerialNumber;
             string category = ad.Category;
-            string location = ad.Lcation;
+            string location = ad.Location;
             string admin = ad.Admin;
 
             string query = "insert into Ad_table (Ad_numb,Ad_category,Ad_location,Ad_admin) values('" + number + "','" + category + "','" + location + "','" + admin + "')";
