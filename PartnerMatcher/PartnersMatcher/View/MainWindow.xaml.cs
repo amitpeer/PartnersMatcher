@@ -27,8 +27,8 @@ namespace PartnersMatcher.View
     {
         static readonly string localPath = System.IO.Path.GetDirectoryName(System.IO.Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private IController controller;
-        List<string> _location;
-        List<string> _category;
+        private  List<string> _location;
+        private List<string> _category;
         private bool? isLoggedIn;
         private User user;
         public bool? IsLoggedIn
@@ -91,6 +91,7 @@ namespace PartnersMatcher.View
                 gird_search.Visibility = Visibility.Visible;
                 label_welcome.Content = Regex.IsMatch(user.FirstName, "^[a-zA-Z0-9]*$") ? user.FirstName + " שלום" : "שלום " + user.FirstName;
                 label_welcome.Visibility = Visibility.Visible;
+                button_createGroup.Visibility = Visibility.Visible;
             }
             else if (isLoggedIn == false)
             {
@@ -99,6 +100,7 @@ namespace PartnersMatcher.View
                 button_signup.Visibility = Visibility.Visible;
                 gird_search.Visibility = Visibility.Hidden;
                 label_welcome.Visibility = Visibility.Hidden;
+                button_createGroup.Visibility = Visibility.Hidden;
             }
         }
 
@@ -144,27 +146,27 @@ namespace PartnersMatcher.View
             tb.GotFocus -= TextBox_GotFocus;
         }
 
-        private void location_loaded(object sender, RoutedEventArgs e)
+        public void location_loaded(object sender, RoutedEventArgs e)
         {
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = _location;
             comboBox.SelectedIndex = 0;
         }
 
-        private void tb_location_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void tb_location_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var comboBox = sender as ComboBox;
             comboBox.Text = comboBox.SelectedItem as string;
         }
 
-        private void catagory_loaded(object sender, RoutedEventArgs e)
+        public void catagory_loaded(object sender, RoutedEventArgs e)
         {
             var comboBox = sender as ComboBox;
             comboBox.ItemsSource = _category;
             comboBox.SelectedIndex = 0;
         }
 
-        private void tb_catagory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void tb_catagory_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var comboBox = sender as ComboBox;
             comboBox.Text = comboBox.SelectedItem as string;
@@ -173,6 +175,12 @@ namespace PartnersMatcher.View
         public void showMessage(string text)
         {
             MessageBox.Show(text);
+        }
+
+        private void button_createGroup_Click(object sender, RoutedEventArgs e)
+        {
+            CreateGroup createGroup = new CreateGroup(controller);
+            createGroup.ShowDialog();
         }
     }
 }

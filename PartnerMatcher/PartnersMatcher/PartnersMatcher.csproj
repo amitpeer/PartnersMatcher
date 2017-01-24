@@ -59,8 +59,11 @@
     <Compile Include="Controller\IController.cs" />
     <Compile Include="Controller\PMController.cs" />
     <Compile Include="Model\Ad.cs" />
+    <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Group.cs" />
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\PMModel.cs" />
+    <Compile Include="Model\Request.cs" />
     <Compile Include="View\AdResult.xaml.cs">
       <DependentUpon>AdResult.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,9 @@
       <DependentUpon>AdSummary.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\DatabaseUtils.cs" />
+    <Compile Include="View\CreateGroup.xaml.cs">
+      <DependentUpon>CreateGroup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\IView.cs" />
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
@@ -81,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

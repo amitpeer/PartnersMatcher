@@ -8,7 +8,6 @@ namespace PartnersMatcher.Model
 {
     public class User
     {
-        //alon
         private string _email;
         public string Email
         {
