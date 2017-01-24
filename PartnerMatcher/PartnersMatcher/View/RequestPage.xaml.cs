@@ -29,6 +29,7 @@ namespace PartnersMatcher.View
             InitializeComponent();
             Background = ((MainWindow)Application.Current.MainWindow).Background;
             this.ad = ad;
+            this.controller = controller;
 
             // fill the labels with the Ad details
             label_admin.Content = ad.Admin;

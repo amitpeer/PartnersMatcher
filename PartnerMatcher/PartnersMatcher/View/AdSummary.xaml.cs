@@ -38,6 +38,7 @@ namespace PartnersMatcher.View
         private void button_Click(object sender, RoutedEventArgs e)
         {
             RequestPage requestPage = new RequestPage(ad, controller);
+            requestPage.ShowDialog();
         }
     }
 }
