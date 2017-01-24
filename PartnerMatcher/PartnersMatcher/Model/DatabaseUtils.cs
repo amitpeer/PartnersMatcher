@@ -179,12 +179,45 @@ namespace PartnersMatcher.Model
 
         public void createNewGrop(string category, string location, string title, string adContent,string groupContent, string userMail)
         {
-            string addAdQuery = "insert into Ads_table (Ad_category,Ad_location,Ad_title,) values('" + category + "','" + location + "','" + title + "')";
+            string addAdQuery = "insert into Ads_table (Ad_category,Ad_location,Ad_title) values('" + category + "','" + location + "','" + title + "')";
             voidQueryToDB(addAdQuery);
             OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from Ads_table", _dbConn);
-            int adInseetedID = int.Parse(maxCommand.ExecuteScalar().ToString());
+            int adInseetedID = getLastinSertedId("Ads_table");
             string addGroupQuery = "insert into Groups (group_adID,group_title,group_content,group_adminID) values('" + adInseetedID + "','" + title + "','" + groupContent + "','" + userMail + "')";
+            voidQueryToDB(addGroupQuery);
+        }
 
+        private int getLastinSertedId(string tableName)
+        {
+
+            Int32 adInseetedID = 0;
+            try
+            {
+                _dbConn.Open();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(dataBaseError);
+            }
+            try
+            {
+             
+                OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from "+tableName, _dbConn);
+                adInseetedID = (Int32)maxCommand.ExecuteScalar();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
+
+            }
+            finally
+            {
+                _dbConn.Close();
+            }
+
+            return adInseetedID;
         }
 
     }

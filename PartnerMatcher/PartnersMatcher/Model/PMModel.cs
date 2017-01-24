@@ -41,20 +41,23 @@ namespace PartnersMatcher.Model
             this.controller = controller;
         }
 
-        public void signUp(string email, string firstName, string lastName, string city, string password)
+        public bool signUp(string email, string firstName, string lastName, string city, string password)
         {
+            bool isSignUp = false;
             try
             {
                 User user = new User(email, firstName, lastName, city, password);
                 databaseUtils.addUser(user);
                 sentValidationEmail(user);
                 controller.showMessage("ההרשמה עברה בהצלחה והודעה לאימייל נשלחה.");
+                isSignUp = true;
 
             }
             catch (Exception e)
             {
                 controller.showMessage(e.Message);
             }
+            return isSignUp;
         }
 
         private void sentValidationEmail(User user)

@@ -18,9 +18,9 @@ namespace PartnersMatcher.Controller
             this.model = model;
         }
 
-        public void signUp(string email, string firstName, string lastName, string city, string password)
+        public bool signUp(string email, string firstName, string lastName, string city, string password)
         {
-            model.signUp(email,firstName,lastName,city,password);
+            return model.signUp(email,firstName,lastName,city,password);
         }
 
         public void showMessage(string text)
@@ -41,7 +41,7 @@ namespace PartnersMatcher.Controller
 
         public void createNewGroup(string category, string location, string title, string adContent, string groupContent)
         {
-            throw new NotImplementedException();
+            model.createNewGroup(category, location, title, adContent, groupContent);
         }
     }
 }
