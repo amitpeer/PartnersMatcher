@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PartnersMatcher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="527.667"
+        Title="MainWindow" Height="350" Width="668.333"
         Background="CadetBlue">
 
     <Grid>
@@ -29,6 +29,14 @@
         <Label x:Name="label_mainContent_Copy" HorizontalContentAlignment="Right" Content=".זה המקום למצוא את האנשים  שהחברים שלכם לא מוכנים להיות" HorizontalAlignment="Left" Height="29" Margin="20,125,0,0" VerticalAlignment="Top" Width="487"/>
         <Label x:Name="label_welcome" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="41" Margin="330,21,0,0" VerticalAlignment="Top" Width="169"/>
         <Button x:Name="button_createGroup" Content="פתח קבוצה חדשה" Visibility="Hidden" HorizontalAlignment="Left" Height="29" Margin="15,12,0,0" VerticalAlignment="Top" Width="132" Click="button_createGroup_Click"/>
+        <Label x:Name="label_myGroups" Content="הקבוצות שלי" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="28" Margin="543,29,0,0" VerticalAlignment="Top" Width="108"/>
+        <ListView x:Name="listView_myGroups" HorizontalAlignment="Left" Height="240" Margin="518,62,0,0" VerticalAlignment="Top" Width="133">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
 
     </Grid>

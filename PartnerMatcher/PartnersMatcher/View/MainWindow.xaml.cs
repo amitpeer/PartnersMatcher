@@ -31,6 +31,9 @@ namespace PartnersMatcher.View
         private List<string> _category;
         private bool? isLoggedIn;
         private User user;
+        private const int LOGGED_IN_WIDTH = 667;
+        private const int LOGGED_OUT_WIDTH = 650;
+
         public bool? IsLoggedIn
         {
             get
@@ -92,6 +95,8 @@ namespace PartnersMatcher.View
                 label_welcome.Content = Regex.IsMatch(user.FirstName, "^[a-zA-Z0-9]*$") ? user.FirstName + " שלום" : "שלום " + user.FirstName;
                 label_welcome.Visibility = Visibility.Visible;
                 button_createGroup.Visibility = Visibility.Visible;
+                Width = LOGGED_IN_WIDTH;
+                addGroupsToListView();
             }
             else if (isLoggedIn == false)
             {
@@ -101,6 +106,16 @@ namespace PartnersMatcher.View
                 gird_search.Visibility = Visibility.Hidden;
                 label_welcome.Visibility = Visibility.Hidden;
                 button_createGroup.Visibility = Visibility.Hidden;
+                Width = LOGGED_OUT_WIDTH;
+                listView_myGroups.Items.Clear();
+            }
+        }
+
+        private void addGroupsToListView()
+        {
+            foreach(Model.Group group in user.Groups)
+            {
+                listView_myGroups.Items.Add(group.t)
             }
         }
 

@@ -13,6 +13,7 @@ namespace PartnersMatcher.Model
         private List<User> users;
         private List<Request> requests;
         private string content;
+        private string title;
 
         public Group()
         {
@@ -20,11 +21,12 @@ namespace PartnersMatcher.Model
             requests = new List<Request>();
         }
 
-        public Group(Ad ad, Admin admin, string content)
+        public Group(Ad ad, Admin admin, string content, string title)
         {
             this.ad = ad;
             this.admin = admin;
             this.content = content;
+            this.title = title;
             users = new List<User>();
             requests = new List<Request>();
         }
@@ -46,25 +48,6 @@ namespace PartnersMatcher.Model
 
         public List<Request> Request { get { return requests; } set { requests = value; } }
 
-        public void addUser(User user)
-        {
-            users.Add(user);
-        }
-
-        public void addRequest(Request request)
-        {
-            requests.Add(request);
-        }
-
-        public void removeUser(User user)
-        {
-            users.Remove(user);
-        }
-
-        public void removeRequest(Request request)
-        {
-            requests.Remove(request);
-        }
-        
+        public string Title { get { return title; } set { title = value; } }     
     }
 }
