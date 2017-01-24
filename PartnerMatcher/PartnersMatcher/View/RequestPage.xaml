@@ -11,14 +11,14 @@
         <Label x:Name="label_Copy" Content=":קטגוריה" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="196,74,0,0" VerticalAlignment="Top" Width="86"/>
         <Label x:Name="label_Copy1" Content=":מיקום" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="196,105,0,0" VerticalAlignment="Top" Width="86"/>
         <Label x:Name="label_Copy2" Content=":כותרת המודעה" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="184,17,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label x:Name="label_title" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="86,17,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label x:Name="label_admin" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="86,43,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label x:Name="label_category" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="86,74,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label x:Name="label_location" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="86,105,0,0" VerticalAlignment="Top" Width="98"/>
-        <Label x:Name="label_Copy3" Content=":תוכן המודעה" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="196,131,0,0" VerticalAlignment="Top" Width="86"/>
-        <Label x:Name="label_content" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="57" Margin="22,131,0,0" VerticalAlignment="Top" Width="162"/>
-        <Button x:Name="button_send" Content="שלח בקשה" HorizontalAlignment="Left" Height="22" Margin="173,197,0,0" VerticalAlignment="Top" Width="91" Click="button_send_Click"/>
-        <Button x:Name="button_close" Content="סגור" HorizontalAlignment="Left" Height="22" Margin="45,197,0,0" VerticalAlignment="Top" Width="91" Click="button_close_Click"/>
+        <Label x:Name="label_title"  FlowDirection="RightToLeft" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="18,17,0,0" VerticalAlignment="Top" Width="166"/>
+        <Label x:Name="label_admin" FlowDirection="RightToLeft" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="22,43,0,0" VerticalAlignment="Top" Width="162"/>
+        <Label x:Name="label_category" FlowDirection="RightToLeft" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="22,74,0,0" VerticalAlignment="Top" Width="162"/>
+        <Label x:Name="label_location" FlowDirection="RightToLeft" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="26" Margin="22,105,0,0" VerticalAlignment="Top" Width="162"/>
+        <Label x:Name="label_Copy3" FlowDirection="RightToLeft" Content="תוכן המודעה:" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Height="26" Margin="196,131,0,0" VerticalAlignment="Top" Width="86"/>
+        <Label x:Name="label_content" FlowDirection="RightToLeft" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Height="57" Margin="22,131,0,0" VerticalAlignment="Top" Width="162"/>
+        <Button x:Name="button_send" FlowDirection="RightToLeft" Content="שלח בקשה" HorizontalAlignment="Left" Height="22" Margin="173,197,0,0" VerticalAlignment="Top" Width="91" Click="button_send_Click"/>
+        <Button x:Name="button_close" FlowDirection="RightToLeft" Content="סגור" HorizontalAlignment="Left" Height="22" Margin="45,197,0,0" VerticalAlignment="Top" Width="91" Click="button_close_Click"/>
 
     </Grid>
 </Window>
