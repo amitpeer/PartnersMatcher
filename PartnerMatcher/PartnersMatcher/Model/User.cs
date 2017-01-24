@@ -14,7 +14,6 @@ namespace PartnersMatcher.Model
         private string _password;
         private string _city;
         private List<int> _groups;
-        private User user;
 
         public User() { }
 

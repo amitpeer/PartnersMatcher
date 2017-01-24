@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="GroupPage" Height="352" Width="731.333">
     <Grid>
-        <Label x:Name="label_groupTitle" Content="" HorizontalAlignment="Left" Height="26" Margin="318,17,0,0" VerticalAlignment="Top" Width="136"/>
-        <Label x:Name="label_members" Content="חברי הקבוצה" HorizontalContentAlignment="right" HorizontalAlignment="Left" Height="26" Margin="296,59,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label x:Name="label_groupTitle" Content="" HorizontalAlignment="Left" Height="26" Margin="245,22,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label x:Name="label_members" Content="חברי הקבוצה" HorizontalContentAlignment="right" HorizontalAlignment="Left" Height="26" Margin="294,64,0,0" VerticalAlignment="Top" Width="87"/>
         <ListView x:Name="listView_members" HorizontalAlignment="Left" Height="181" Margin="17,90,0,0" VerticalAlignment="Top" Width="366">
             <ListView.View>
                 <GridView>
