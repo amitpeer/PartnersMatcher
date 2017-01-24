@@ -9,7 +9,7 @@
         ResizeMode="NoResize"
         Background="CadetBlue">
     <Grid>
-        <ListView x:Name ="listview" Width="350" Margin="44,20,42,63" Background="CadetBlue"/>
+        <ListView x:Name ="listview" Width="350" Margin="44,20,42,63" Background="CadetBlue" />
 
 
 
