@@ -306,6 +306,7 @@ namespace PartnersMatcher.Model
             OleDbCommand maxCommand = new OleDbCommand("SELECT max(Ad_id) from Ads_table", _dbConn);
             int adInseetedID = getLastinSertedId("Ads_table");
             string addGroupQuery = "insert into Groups (group_adID,group_title,group_content,group_adminID) values('" + adInseetedID + "','" + title + "','" + groupContent + "','" + userMail + "')";
+            //addUserToGroup(userMail,)
             voidQueryToDB(addGroupQuery);
         }
 
@@ -338,5 +339,31 @@ namespace PartnersMatcher.Model
             return adInseetedID;
         }
 
+        public void addUserToGroup(string email, int groupId)
+        {
+            try
+            {
+                _dbConn.Open();
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(dataBaseError);
+            }
+            try
+            {
+                string query = "insert into Groups_and_users (group_id,user_email) values('" + groupId + "','" + email + "')";
+                voidQueryToDB(query);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("פרמטרים לא נכונים. אנא נסה שוב");
+            }
+            finally
+            {
+                _dbConn.Close();
+            }
+        }
     }
 }

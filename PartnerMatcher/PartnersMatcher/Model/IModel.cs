@@ -21,5 +21,6 @@ namespace PartnersMatcher.Model
 
         Group getGroupById(int id);
         User getUserByEmail(string email);
+        void acceptUserToGroup(string email, int groupId);
     }
 }
