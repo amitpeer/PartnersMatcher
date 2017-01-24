@@ -22,6 +22,7 @@ namespace PartnersMatcher.View
     public partial class Login : Window
     {
         private IController controller;
+
         public Login(IController controller)
         {
             InitializeComponent();

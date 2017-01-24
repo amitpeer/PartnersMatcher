@@ -11,9 +11,15 @@ namespace PartnersMatcher.Controller
     public interface IController
     {
         void signUp(string email, string firstName, string lastName, string city, string password);
+
         void showMessage(string text);
+
         User login(string email, string pass);
 
         List<Ad> getAdsByLocationAndCategory(string location, string category);
+
+        void createNewGroup(string category, string location, string title, string content);
+
+
     }
 }

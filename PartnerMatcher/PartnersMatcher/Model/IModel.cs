@@ -10,9 +10,15 @@ namespace PartnersMatcher.Model
     interface IModel
     {
         void setController(IController controller);
+
         void signUp(string email, string firstName, string lastName, string city, string password);
+
         User login(string email, string pass);
 
         List<Ad> getAdsByLocationAndCategory(string location, string category);
+
+        void createNewGroup(string category, string location, string title, string content);
+
+
     }
 }

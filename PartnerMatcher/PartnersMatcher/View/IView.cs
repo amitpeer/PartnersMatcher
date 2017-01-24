@@ -9,5 +9,7 @@ namespace PartnersMatcher.View
     interface IView
     {
         void showMessage(string text);
+
+
     }
 }
