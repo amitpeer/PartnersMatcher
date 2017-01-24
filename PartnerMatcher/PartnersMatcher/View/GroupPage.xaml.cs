@@ -25,6 +25,8 @@ namespace PartnersMatcher.View
         private Group group;
         private Admin admin;
         private bool isAdmin;
+        private const int ADMIN_WIDTH = 490;
+        private const int REGULAR_WIDTH = 740;
 
         public GroupPage(IController controller, Group group, User user)
         {
@@ -38,13 +40,27 @@ namespace PartnersMatcher.View
             {
                 isAdmin = true;
                 admin = new Admin(user);
+                Width = ADMIN_WIDTH;
+                addUsersToRequestsList();
             }
             else
             {
                 isAdmin = false;
+                Width = REGULAR_WIDTH;
             }
 
+            // fill in the labels with the group details
+            label_content.Content = group.Content;
+            label_groupTitle.Content = group.Title;
             addUsersToMemeberList();
+        }
+
+        private void addUsersToRequestsList()
+        {
+            foreach(Request request in group.Request)
+            {
+                listView_requests.Items.Add(controller.getUserByEmail(request.User).ToString());
+            }
         }
 
         private void addUsersToMemeberList()
