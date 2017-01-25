@@ -97,6 +97,10 @@ namespace PartnersMatcher.View
 
                     //add user to members ListView
                     listView_members.Items.Add(controller.getUserByEmail(selectedUserEmail));
+
+                    // add user to the Group users object
+                    group.Users.Add(selectedUserEmail);
+                                  
                 }
                 else if (result == MessageBoxResult.No)
                 {

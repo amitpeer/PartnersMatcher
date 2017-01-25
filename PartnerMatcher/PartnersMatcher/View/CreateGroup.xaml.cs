@@ -58,6 +58,7 @@ namespace PartnersMatcher.View
             else
             {
                 controller.createNewGroup(comboBox_category.Text, comboBox_location.Text, textBox_title.Text, textBox_adContent.Text, textBox_groupContent.Text);
+
                 Close();
             }
         }
