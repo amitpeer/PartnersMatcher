@@ -195,6 +195,7 @@ namespace PartnersMatcher.View
 
         private void button_createGroup_Click(object sender, RoutedEventArgs e)
         {
+
             CreateGroup createGroup = new CreateGroup(controller);
             createGroup.ShowDialog();           
         }
